@@ -1,0 +1,336 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>4. (译)Python的惯例 &#8212; 一起写Python文章，一起看Python文章</title>
+    <link rel="stylesheet" href="_static/rux.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. Github上Python开发者应该关心的Repo" href="GitHub-Repos-For-Pythoners.html" />
+    <link rel="prev" title="3. (译)Python关键字yield的解释(stackoverflow)" href="the-python-yield-keyword-explained.html" />
+   
+  <script type="text/javascript"
+    src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+  </head><body>
+  
+  
+
+
+    <div class="document">
+  <div class="documentwrapper">
+      <div class="bodywrapper">
+        <div class="body">
+          <h1 class="project-name">
+            <a href="index.html">PyZh</a>
+          </h1>
+          <div class="nav separator">
+          <span>
+            <a href="index.html">Index</a>&nbsp;~ <a href="https://github.com/hit9/PyZh">Code</a>&nbsp;
+            ~ <a href="https://github.com/hit9/PyZh/issues">Issues</a>&nbsp;</span>
+          </div>
+          <p class="flourish"><img src="_static/flourish.svg" height="60px" alt=""></p>
+          <div class="body-html">
+            
+  <div class="section" id="python">
+<h1><a class="toc-backref" href="#id10">4. (译)Python的惯例</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">原文:</th><td class="field-body"><a class="reference external" href="http://courses.cms.caltech.edu/cs11/material/python/misc/python_idioms.html">http://courses.cms.caltech.edu/cs11/material/python/misc/python_idioms.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>每一种计算机语言都有其使用惯例，就是那些完成给定任务所采用的典型方法。Python也不例外。一些使用惯例并不为人所知，所以我们在这里收集一下。我们同样添加了一些可能你在阅读教程的时候没有注意到的一些特性。这些惯例在本文中将按照它们的使用难度和使用的频率的顺序展开。</p>
+<p><strong>提醒!</strong> 本文一些东西可能过时了，请参照最新的Python官方文档.</p>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#python" id="id10">(译)Python的惯例</a><ul>
+<li><a class="reference internal" href="#id2" id="id11">请看这些文档…</a></li>
+<li><a class="reference internal" href="#id3" id="id12">迭代一个数组</a></li>
+<li><a class="reference internal" href="#id4" id="id13">打断无限循环</a></li>
+<li><a class="reference internal" href="#id5" id="id14">序列乘法</a></li>
+<li><a class="reference internal" href="#xrange" id="id15">xrange</a></li>
+<li><a class="reference internal" href="#print-to" id="id16">“Print to”语法</a></li>
+<li><a class="reference internal" href="#id6" id="id17">异常类</a></li>
+<li><a class="reference internal" href="#id7" id="id18">列表生成式</a></li>
+<li><a class="reference internal" href="#id8" id="id19">函数式编程</a></li>
+<li><a class="reference internal" href="#id9" id="id20">生成器和迭代器</a></li>
+<li><a class="reference internal" href="#peps" id="id21">PEPS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id11">4.1. 请看这些文档…</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>虽然它们并不是真正的使用惯例，但是你应该知道它们</p>
+<ol class="arabic simple">
+<li>长整数</li>
+<li>函数的可选参数</li>
+<li>函数的关键字参数</li>
+<li>类的 <code class="xref py py-meth docutils literal notranslate"><span class="pre">getattr()</span></code> 方法和 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> 方法</li>
+<li>操作符重载</li>
+<li>多继承</li>
+<li>文档字符串(docstring)</li>
+<li>正则表达式</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id12">4.2. 迭代一个数组</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>Python 的for语句并不和C语言的一样，更像其他语言的foreach. 如果你需要在迭代中使用索引，标准的做法是:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># or whatever</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span>
+    <span class="c1"># Do something with &#39;i&#39;.</span>
+</pre></div>
+</div>
+<p>这是相当笨拙的，更干净简洁的做法是:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># or whatever</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="c1"># Do something with index &#39;i&#39; and its corresponding element &#39;e&#39;.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id13">4.3. 打断无限循环</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>Python并不像C语言有”do/while”语句，它只有一个while循环语句和for循环语句，有时你并不会提前知道什么时候循环会结束，或者你需要打破循环。一个不能再普通的例子就是正在按行迭代一个文件内容:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_filename&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>   <span class="c1"># infinite loop</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>  <span class="c1"># &#39;readline()&#39; returns None at end of file.</span>
+        <span class="k">break</span>
+
+    <span class="c1"># Process the line.</span>
+</pre></div>
+</div>
+<p>这样做并不聪明，但是足够规范。对于文件来说还有一个更漂亮的做法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_filename&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+    <span class="c1"># Process the line.</span>
+</pre></div>
+</div>
+<p>注意Python中也有一个continue语句(就像C中的)来跳过本次循环进入下一次循环。</p>
+<p>注意内置函数 <code class="xref py py-meth docutils literal notranslate"><span class="pre">file()</span></code> 跟 <code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code> 一样，而且现在更流行了(因为对象的构造器应该和这个对象一个名字)</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id14">4.4. 序列乘法</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在Python中，链表和字符串都是序列，它们有很多一样的操作(比如 <code class="xref py py-meth docutils literal notranslate"><span class="pre">len()</span></code>).一个不太明显的惯用手法是序列乘法.想要得到一个包含100个0的链表，你可以这么做:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zeroes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>类似地，可以这样做来获取一个包含100个空格的字符串:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spaces</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span>
+</pre></div>
+</div>
+<p>这很方便。</p>
+</div>
+<div class="section" id="xrange">
+<h2><a class="toc-backref" href="#id15">4.5. xrange</a><a class="headerlink" href="#xrange" title="永久链接至标题">¶</a></h2>
+<p>有的时候你想要生成一个长链表但是并不想把它立刻存在内存中。比如，你想要迭代1到1,000,000,000，但是你并不想把这些数都存在内存中。这样你就不会想用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">range()</span></code> .取而代之你应该用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">xrange()</span></code> ,它是 <code class="xref py py-meth docutils literal notranslate"><span class="pre">range()</span></code> 的一个延迟加载的版本(lazy version), 也就是说它只会在需要的时候生成那个数。所以你可以这么写:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">):</span>
+    <span class="c1"># do something with i...</span>
+</pre></div>
+</div>
+<p>而且，内存使用会很平稳</p>
+</div>
+<div class="section" id="print-to">
+<h2><a class="toc-backref" href="#id16">4.6. “Print to”语法</a><a class="headerlink" href="#print-to" title="永久链接至标题">¶</a></h2>
+<p>最近,”&gt;&gt;” 操作符被重载了, 这样你就可以像下面那样在print语句中使用它了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;this is an error message&quot;</span>
+</pre></div>
+</div>
+<p>&gt;&gt;右边应该是一个文件对象。</p>
+<p>译者注例子(Python2.7)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">&gt;&gt;</span>  <span class="n">file</span><span class="p">(</span><span class="s2">&quot;myfile&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span> <span class="s2">&quot;hello world&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id17">4.7. 异常类</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>以前Python中的异常仅仅是简单的字符串。现在不同了，因为类有了很多新的进步。特别是，你可以为异常定义子类，可以选择性的捕捉一些异常或者捕捉它们的超类。异常类一般不复杂.一个典型的异常类看起来是这样的:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class MyException:
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return `self.value`
+</pre></div>
+</div>
+<p>这样使用:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">do_stuff</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">something_bad_has_happened</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="n">MyException</span><span class="p">,</span> <span class="s2">&quot;something bad happened&quot;</span>
+<span class="k">except</span> <span class="n">MyException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s2">&quot;My exception occurred, value: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id18">4.8. 列表生成式</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>这是Python中全新的一个特征，来源于函数式编程语言Haskell(很酷的编程语言，顺便告诉你，你应该看看haskell)</p>
+<p>其思想是:有时你想要为具有某些特征的对象做一个链表，比如你想要为0到20的偶数做一个链表:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">results</span></code> 里面就是结果：<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">8,</span> <span class="pre">10,</span> <span class="pre">12,</span> <span class="pre">14,</span> <span class="pre">16,</span> <span class="pre">18]</span></code> (没有20,因为range(20)是从0到19).但是同样的事情你可以用列表生成式来做地更简洁些:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>列表生成式是循环的语法糖.你可以做些更复杂的:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+           <span class="k">if</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">5</span>
+           <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>结果 <code class="docutils literal notranslate"><span class="pre">results</span></code> 是 <code class="docutils literal notranslate"><span class="pre">[(3,</span> <span class="pre">2),</span> <span class="pre">(4,</span> <span class="pre">1),</span> <span class="pre">(5,</span> <span class="pre">0)]</span></code> . 所以你可以在方括号中写任意多个for和if语句(可能更多，详细参见文档), 你可以用列表生成式来实现快速排序算法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">quicksort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="o">+</span> <span class="p">[</span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> \
+               <span class="n">quicksort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>优美吗? :-)</p>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id19">4.9. 函数式编程</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>Python实现了很多平常只出现在函数式编程语言(像lisp和ML)中的函数和特性。</p>
+<ol class="arabic">
+<li><p class="first"><code class="xref py py-meth docutils literal notranslate"><span class="pre">map()</span></code> <code class="xref py py-meth docutils literal notranslate"><span class="pre">reduce()</span></code> <code class="xref py py-meth docutils literal notranslate"><span class="pre">filter()</span></code> 函数</p>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">map()</span></code> 需要一个函数和几个序列做参数(通常一个)，然后对于序列的每个元素作为函数的参数,所有的返回值产生一个新的序列作为map的返回值。比如你想要把一个字符串链表转换成数字链表:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">]</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">atoi</span><span class="p">,</span> <span class="n">lst</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 5]</span>
+</pre></div>
+</div>
+<p>(译者注:Py2.7中使用 <code class="docutils literal notranslate"><span class="pre">map(int,</span> <span class="pre">lst)</span></code> )</p>
+<p>你可以对两个参数的函数使用map:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">lst_sum</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">lst1</span><span class="p">,</span> <span class="n">lst2</span><span class="p">)</span>
+
+<span class="c1"># lst_sum == [7, 9, 11, 13, 15]</span>
+</pre></div>
+</div>
+<p>(译者注:这个函数可以有任意多参数，map的后面的参数要跟相应多的序列即可)</p>
+<p>你可以使用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">reduce()</span></code> 来把一个序列减少成一个值。第一个参数是函数，这个函数首先作用于序列的第一个和第二个元素，然后用返回的值继续和序列的第三个元素执行这个函数。。。直到剩下一个值，作为reduce的返回值.比如，你可以这么来求0到9的和:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>(译者注:这里为了讲解，一般推荐直接用函数 <code class="xref py py-meth docutils literal notranslate"><span class="pre">sum()</span></code> )</p>
+<p>你可以使用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">filter()</span></code> 来生成一个序列的子集。比如，获取0到100的所有奇数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>  <span class="c1"># [0, 1, ... 100]</span>
+
+<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="n">odd_nums</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_odd</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>  <span class="c1"># [1, 3, 5, ... 99]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> 关键字</p>
+<p>lambda 语句声明了一个匿名的函数,很多时候我们在reduce，map等函数中使用的函数只使用了一次。这些函数可以被简洁地声明为匿名函数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">lst_elementwise_sum</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">lst1</span><span class="p">,</span> <span class="n">lst2</span><span class="p">)</span>
+<span class="n">lst1_sum</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">lst1</span><span class="p">)</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+<span class="n">odd_nums</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意，你仍然可以在lambda函数中使用这个匿名函数外定义的变量。这叫做“词法范围”(lexical scoping),在Python 2.2时官方性地给出了介绍.就像这样:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">add_a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">add_a</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># b == 11</span>
+</pre></div>
+</div>
+<p>lambda中的 <code class="docutils literal notranslate"><span class="pre">a</span></code> 是在上一行定义的。如果你认为这是显然的，很好！事实证明很多Python开发者花了很多时间来搞明白它。</p>
+<p>关于lambda你可以参见下 lisp 或 scheme的文档。</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">apply</span></code> 函数</p>
+<p>在python中函数是对象，你可以像操作数和字符串一样操作它们(把它们存在变量中等等)，有时你有一个函数对象，你想把程序中生成的一个序列作为参数传给这个函数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sorry about the long variable names ;-)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">function_returning_list_of_numbers</span><span class="p">()</span>
+<span class="n">f</span>    <span class="o">=</span> <span class="n">function_returning_a_function_which_operates_on_a_list_of_numbers</span><span class="p">()</span>
+
+<span class="c1"># You want to do f(arg[0], arg[1], ...) but you don&#39;t know how many</span>
+<span class="c1"># arguments are in &#39;args&#39;.  For this you have to use &#39;apply&#39;:</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+
+<span class="c1"># A trivial example:</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">two</span> <span class="o">=</span> <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>  <span class="c1"># == 2</span>
+</pre></div>
+</div>
+<p>译者注:之所以我们不经常用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">apply()</span></code> ,一般可以这么做:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="n">foo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id20">4.10. 生成器和迭代器</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>这是一个高级的(并且很cool)的话题，我们这里没有地方展开说了。如果你关心这个，去看Python文档吧.-_-</p>
+</div>
+<div class="section" id="peps">
+<h2><a class="toc-backref" href="#id21">4.11. PEPS</a><a class="headerlink" href="#peps" title="永久链接至标题">¶</a></h2>
+<p>Python社区非常活跃，”comp.lang.python”小组有很多关于Python应该添加什么新特征的讨论。</p>
+<p>所有PEP,见这里:<a class="reference external" href="http://www.python.org/dev/peps/">http://www.python.org/dev/peps/</a></p>
+</div>
+</div>
+
+
+            <div class="cut">***</div>
+          </div>
+       </div>
+     </div>
+  </div>
+      <div class="clearer"></div>
+    </div>
+  
+  <a href="http://github.com/hit9/PyZh">
+    <img style="position: fixed; top: 0; right: 0; border: 0;"
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+    alt="Fork me on GitHub" />
+  </a>
+  
+
+  
+  <div class="footer">
+    &copy; Copyright 2013, hit9.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>. Theme
+    <a href="https://github.com/hit9/sphinx-theme-rux">rux</a>.
+  </div>
+
+  </body>
+</html>

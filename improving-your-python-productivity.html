@@ -1,0 +1,242 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>6. (译)提高你的Python编码效率 &#8212; 一起写Python文章，一起看Python文章</title>
+    <link rel="stylesheet" href="_static/rux.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="7. 让人耳目一新的Python库" href="awesome-python-libraries.html" />
+    <link rel="prev" title="5. Github上Python开发者应该关心的Repo" href="GitHub-Repos-For-Pythoners.html" />
+   
+  <script type="text/javascript"
+    src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+  </head><body>
+  
+  
+
+
+    <div class="document">
+  <div class="documentwrapper">
+      <div class="bodywrapper">
+        <div class="body">
+          <h1 class="project-name">
+            <a href="index.html">PyZh</a>
+          </h1>
+          <div class="nav separator">
+          <span>
+            <a href="index.html">Index</a>&nbsp;~ <a href="https://github.com/hit9/PyZh">Code</a>&nbsp;
+            ~ <a href="https://github.com/hit9/PyZh/issues">Issues</a>&nbsp;</span>
+          </div>
+          <p class="flourish"><img src="_static/flourish.svg" height="60px" alt=""></p>
+          <div class="body-html">
+            
+  <div class="section" id="python">
+<h1><a class="toc-backref" href="#id6">6. (译)提高你的Python编码效率</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">Oz Katz</td>
+</tr>
+<tr class="field-even field"><th class="field-name">联系:</th><td class="field-body"><a class="reference external" href="https://twitter.com/ozkatz100">https://twitter.com/ozkatz100</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">翻译:</th><td class="field-body">hit9</td>
+</tr>
+<tr class="field-even field"><th class="field-name">译者注:</th><td class="field-body">原文链接 - <a class="reference external" href="http://ozkatz.github.io/improving-your-python-productivity.html">http://ozkatz.github.io/improving-your-python-productivity.html</a></td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#python" id="id6">(译)提高你的Python编码效率</a><ul>
+<li><a class="reference internal" href="#id2" id="id7">1. 字典和集合推导式</a></li>
+<li><a class="reference internal" href="#id3" id="id8">2.使用计数器对象计数</a></li>
+<li><a class="reference internal" href="#json" id="id9">3. 漂亮地打印JSON</a></li>
+<li><a class="reference internal" href="#web" id="id10">4. 快速建立一个web服务</a></li>
+<li><a class="reference internal" href="#id4" id="id11">5. Python的开源社区</a></li>
+<li><a class="reference internal" href="#id5" id="id12">译者追加的技巧</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>我用Python编程有几年了, 并且我仍然经常惊讶于Python代码可以如何的简洁，如何的 <a class="reference external" href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a> 。 我学到了很多小贴士和技巧，大多数来自于阅读开源项目的源代码，像 <a class="reference external" href="https://www.djangoproject.com/">Django</a>, <a class="reference external" href="http://flask.pocoo.org/">Flask</a>, <a class="reference external" href="http://docs.python-requests.org/en/latest/">Requests</a> 等。</p>
+<p>这里我挑出了几个有时被大家忽略的几条，但是它们在日常工作中会有很大帮助。</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">6.1. 1. 字典和集合推导式</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>大多数Python开发者知道使用列表推导式。你不熟悉这一点？ 一个列表推导式是一个创造列表的简短方式:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">another_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_list</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">another_list</span>
+<span class="go">[2, 3, 4, 5, 6]</span>
+</pre></div>
+</div>
+<p>从Python 3.1开始(也反向地移植到了Python 2.7),我们可以用同样的方式创建集合和字典:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Set Comprehensions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">even_set</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">some_list</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">even_set</span>
+<span class="go">set([8, 2, 4])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Dict Comprehensions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">{1: False, 2: True, 3: False, 4: True, 5: False, 6: True, 7: False, 8: True, 9: False, 10: True}</span>
+</pre></div>
+</div>
+<p>第一个例子中，我们用 <code class="docutils literal notranslate"><span class="pre">some_list</span></code> 建立了一个元素不重复的集合，但只有偶数。第二个字典的例子中展示了一个字典的创建，这个字典的键是1到10（包括10），值是布尔值，指明该键是不是一个偶数。</p>
+<p>另一个值得注意的地方是集合的文法，我们可以这么简单的创建一个集合:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_set</span>
+<span class="go">set([1, 2, 3, 4])</span>
+</pre></div>
+</div>
+<p>而没有使用到内建的 <code class="docutils literal notranslate"><span class="pre">set</span></code> 方法</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">6.2. 2.使用计数器对象计数</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>很明显，但很容易遗忘。计数是一个寻常不过的编程任务，而且大多数情形下这不是个难事。不过计数可以更简单。</p>
+<p>Python的 <a class="reference external" href="http://docs.python.org/2/library/collections.html">collections</a> 库包含一个 <code class="docutils literal notranslate"><span class="pre">dict</span></code> 的子类，专门解决计数任务:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">Counter({&#39;l&#39;: 3, &#39;o&#39;: 2, &#39; &#39;: 1, &#39;e&#39;: 1, &#39;d&#39;: 1, &#39;h&#39;: 1, &#39;r&#39;: 1, &#39;w&#39;: 1})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[(&#39;l&#39;, 3), (&#39;o&#39;, 2)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json">
+<h2><a class="toc-backref" href="#id9">6.3. 3. 漂亮地打印JSON</a><a class="headerlink" href="#json" title="永久链接至标题">¶</a></h2>
+<p>JSON是一个很棒的序列格式，如今广泛应用在API和web服务中，但是很难用裸眼来看大数据量的JSON,它们很长，还在一行里。</p>
+<p>可以用参数 <code class="docutils literal notranslate"><span class="pre">indent</span></code> 来更好地打印JSON数据，这在跟 REPL或是日志打交道的时候很有用:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">json</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># No indention</span>
+<span class="go">{&quot;status&quot;: &quot;OK&quot;, &quot;count&quot;: 2, &quot;results&quot;: [{&quot;age&quot;: 27, &quot;name&quot;: &quot;Oz&quot;, &quot;lactose_intolerant&quot;: true}, {&quot;age&quot;: 29, &quot;name&quot;: &quot;Joe&quot;, &quot;lactose_intolerant&quot;: false}]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># With indention</span>
+<span class="go">{</span>
+<span class="go">  &quot;status&quot;: &quot;OK&quot;,</span>
+<span class="go">  &quot;count&quot;: 2,</span>
+<span class="go">  &quot;results&quot;: [</span>
+<span class="go">    {</span>
+<span class="go">      &quot;age&quot;: 27,</span>
+<span class="go">      &quot;name&quot;: &quot;Oz&quot;,</span>
+<span class="go">      &quot;lactose_intolerant&quot;: true</span>
+<span class="go">    },</span>
+<span class="go">    {</span>
+<span class="go">      &quot;age&quot;: 29,</span>
+<span class="go">      &quot;name&quot;: &quot;Joe&quot;,</span>
+<span class="go">      &quot;lactose_intolerant&quot;: false</span>
+<span class="go">    }</span>
+<span class="go">  ]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>另外，去看看内建模块 <code class="docutils literal notranslate"><span class="pre">pprint</span></code> , 它可以帮助你漂亮地输出其它的东西。</p>
+</div>
+<div class="section" id="web">
+<h2><a class="toc-backref" href="#id10">6.4. 4. 快速建立一个web服务</a><a class="headerlink" href="#web" title="永久链接至标题">¶</a></h2>
+<p>有时我们需要一个建立RPC服务简单而快速的方法。我们需要的只是让程序B去调用程序A(可能在另一个机器上)的方法。</p>
+<p>我们不用了解关于这个的任何技术，但是我们只是需要这么个简单的东西，我们可以使用一个叫做 <a class="reference external" href="http://en.wikipedia.org/wiki/XML-RPC">XML-RPC</a> 的协议(对应的Python库实现 <a class="reference external" href="http://docs.python.org/2/library/simplexmlrpcserver.html">SimpleXMLRPCServer</a> )来处理这种事。</p>
+<p>这里是一个简单粗糙的文件阅读服务器:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SimpleXMLRPCServer</span> <span class="k">import</span> <span class="n">SimpleXMLRPCServer</span>
+
+<span class="k">def</span> <span class="nf">file_reader</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_introspection_functions</span><span class="p">()</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">file_reader</span><span class="p">)</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>响应它的客户端:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/&#39;</span><span class="p">)</span>
+<span class="n">proxy</span><span class="o">.</span><span class="n">file_reader</span><span class="p">(</span><span class="s1">&#39;/tmp/secret.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在我们就有了一个远程的文件阅读器，除了一点代码，没有外部依赖。(当然，不安全，所以只在”家”用这个吧)</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id11">6.5. 5. Python的开源社区</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>刚我一直在说Python的标准库了，这些库只要你安装Python就会包含在你的Python中。对于大多数的其他任务，这里有大量的社区维护的第三方库来满足我们的需求。</p>
+<p>这是一个我挑选Python库的办法:</p>
+<ul class="simple">
+<li>包含一个明确的协议，以便我们使用</li>
+<li>积极活跃的开发和维护</li>
+<li>可以用 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 来安装，可以轻易地重复部署</li>
+<li>拥有一个合适覆盖率的测试集</li>
+</ul>
+<p>如果你发现了一个适合你需求的Python库，不要害羞，大多数开源项目欢迎我们贡献代码和协助，即使你不是一个Python老将。帮助之手随时受欢迎！</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id12">6.6. 译者追加的技巧</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>原文评论里的一些技巧, 值得一看！</p>
+<ul>
+<li><p class="first">快速在一个目录建立HTTP服务器</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">SimpleHTTPServer</span>
+</pre></div>
+</div>
+<p>在 Python 3 中:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">命令行上漂亮地打印JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s1">&#39;{&quot;json&quot;:&quot;obj&quot;}&#39;</span> <span class="o">|</span> <span class="n">python</span> <span class="o">-</span><span class="n">mjson</span><span class="o">.</span><span class="n">tool</span>
+</pre></div>
+</div>
+<p>而且，如果你安装了 <code class="docutils literal notranslate"><span class="pre">Pygments</span></code> 模块，可以高亮地打印JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s1">&#39;{&quot;json&quot;:&quot;obj&quot;}&#39;</span> <span class="o">|</span> <span class="n">python</span> <span class="o">-</span><span class="n">mjson</span><span class="o">.</span><span class="n">tool</span> <span class="o">|</span> <span class="n">pygmentize</span> <span class="o">-</span><span class="n">l</span> <span class="n">json</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">注意 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 是一个空的字典，而不是空的集合</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+            <div class="cut">***</div>
+          </div>
+       </div>
+     </div>
+  </div>
+      <div class="clearer"></div>
+    </div>
+  
+  <a href="http://github.com/hit9/PyZh">
+    <img style="position: fixed; top: 0; right: 0; border: 0;"
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+    alt="Fork me on GitHub" />
+  </a>
+  
+
+  
+  <div class="footer">
+    &copy; Copyright 2013, hit9.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>. Theme
+    <a href="https://github.com/hit9/sphinx-theme-rux">rux</a>.
+  </div>
+
+  </body>
+</html>
