@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>13. Python Realtime &#8212; 一起写Python文章，一起看Python文章</title>
     <link rel="stylesheet" href="_static/rux.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -46,43 +44,43 @@
             
   <div class="section" id="python-realtime">
 <h1><a class="toc-backref" href="#id29">13. Python Realtime</a><a class="headerlink" href="#python-realtime" title="永久链接至标题">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">英文原文:</th><td class="field-body"><a class="reference external" href="http://mrjoes.github.io/2013/06/21/python-realtime.html">http://mrjoes.github.io/2013/06/21/python-realtime.html</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">译文原文:</th><td class="field-body"><a class="reference external" href="http://taokeqin.com/python-realtime.html">http://taokeqin.com/python-realtime.html</a></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">翻译:</th><td class="field-body"><a class="reference external" href="http://taokeqin.com/author/tao-ke-qin.html">陶克勤</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">英文原文</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://mrjoes.github.io/2013/06/21/python-realtime.html">http://mrjoes.github.io/2013/06/21/python-realtime.html</a></p>
+</dd>
+<dt class="field-even">译文原文</dt>
+<dd class="field-even"><p><a class="reference external" href="http://taokeqin.com/python-realtime.html">http://taokeqin.com/python-realtime.html</a></p>
+</dd>
+<dt class="field-odd">翻译</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://taokeqin.com/author/tao-ke-qin.html">陶克勤</a></p>
+</dd>
+</dl>
 <div class="contents topic" id="id2">
 <p class="topic-title first">目录</p>
 <ul class="simple">
-<li><a class="reference internal" href="#python-realtime" id="id29">Python Realtime</a><ul>
-<li><a class="reference internal" href="#id3" id="id30">简介</a></li>
-<li><a class="reference internal" href="#id4" id="id31">一点理论知识</a></li>
-<li><a class="reference internal" href="#websockets" id="id32">邂逅WebSockets</a></li>
-<li><a class="reference internal" href="#id9" id="id33">用例</a></li>
-<li><a class="reference internal" href="#polyfill" id="id34">Polyfill库</a></li>
-<li><a class="reference internal" href="#id11" id="id35">服务器端</a></li>
-<li><a class="reference internal" href="#greenlets" id="id36">Greenlets</a></li>
-<li><a class="reference internal" href="#id13" id="id37">回调</a></li>
-<li><a class="reference internal" href="#futures" id="id38">Futures</a></li>
-<li><a class="reference internal" href="#generators" id="id39">Generators</a></li>
-<li><a class="reference internal" href="#id15" id="id40">总结</a></li>
-<li><a class="reference internal" href="#id16" id="id41">异步框架</a></li>
-<li><a class="reference internal" href="#id17" id="id42">Tornado</a></li>
-<li><a class="reference internal" href="#id21" id="id43">管理状态</a></li>
-<li><a class="reference internal" href="#id22" id="id44">与WSGI应用集成</a></li>
-<li><a class="reference internal" href="#id23" id="id45">组织你的代码</a></li>
-<li><a class="reference internal" href="#broker" id="id46">推送broker</a></li>
-<li><a class="reference internal" href="#id24" id="id47">游戏</a></li>
-<li><a class="reference internal" href="#id25" id="id48">部署</a></li>
-<li><a class="reference internal" href="#id26" id="id49">现实生活中的经验</a></li>
-<li><a class="reference internal" href="#id28" id="id50">备注</a></li>
+<li><p><a class="reference internal" href="#python-realtime" id="id29">Python Realtime</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id30">简介</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id31">一点理论知识</a></p></li>
+<li><p><a class="reference internal" href="#websockets" id="id32">邂逅WebSockets</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id33">用例</a></p></li>
+<li><p><a class="reference internal" href="#polyfill" id="id34">Polyfill库</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id35">服务器端</a></p></li>
+<li><p><a class="reference internal" href="#greenlets" id="id36">Greenlets</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id37">回调</a></p></li>
+<li><p><a class="reference internal" href="#futures" id="id38">Futures</a></p></li>
+<li><p><a class="reference internal" href="#generators" id="id39">Generators</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id40">总结</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id41">异步框架</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id42">Tornado</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id43">管理状态</a></p></li>
+<li><p><a class="reference internal" href="#id22" id="id44">与WSGI应用集成</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id45">组织你的代码</a></p></li>
+<li><p><a class="reference internal" href="#broker" id="id46">推送broker</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id47">游戏</a></p></li>
+<li><p><a class="reference internal" href="#id25" id="id48">部署</a></p></li>
+<li><p><a class="reference internal" href="#id26" id="id49">现实生活中的经验</a></p></li>
+<li><p><a class="reference internal" href="#id28" id="id50">备注</a></p></li>
 </ul>
 </li>
 </ul>
@@ -122,9 +120,9 @@
 <p>总之，所有这些基于HTTP的折中方案都可以叫做 <a class="reference external" href="http://en.wikipedia.org/wiki/Comet_(programming">Comet</a> 。</p>
 <p>让我们来看看这些方法的利弊：</p>
 <ul class="simple">
-<li>长轮询（Long-polling）是昂贵的，但兼容性很好。</li>
-<li>块传输协议效率更高，但有可能不是所有客户端都能正常工作，并且如果没有某种形式的探测你都无法发现这个问题的存在。</li>
-<li>SSE也不错，但不是所有的浏览器都支持。比较好的是有办法在建立连接前就知道它是否支持。</li>
+<li><p>长轮询（Long-polling）是昂贵的，但兼容性很好。</p></li>
+<li><p>块传输协议效率更高，但有可能不是所有客户端都能正常工作，并且如果没有某种形式的探测你都无法发现这个问题的存在。</p></li>
+<li><p>SSE也不错，但不是所有的浏览器都支持。比较好的是有办法在建立连接前就知道它是否支持。</p></li>
 </ul>
 <p>但是，所有这些方法都有一个问题： 他们都只提供一种方式将数据从服务器推送到客户端，而不是在建立双向通信， 客户端每次想发送一些数据的时候，
 将不得不使用AJAX请求到服务器。 这样会增加延迟，并在服务器也会产生额外的负载。</p>
@@ -169,9 +167,9 @@ Socket.IO早期的server实现是基于 <a class="reference external" href="http
 WSGI服务器一次只能处理一个请求。</p>
 <p>让我们再次回顾长轮询（long-polling）传输：</p>
 <ul class="simple">
-<li>客户端打开HTTP连接到服务器，以获得更多的数据</li>
-<li>无可用数据，服务器保持连接打开并等待数据发送</li>
-<li>因为服务器无法处理任何其他请求，一切都被阻塞</li>
+<li><p>客户端打开HTTP连接到服务器，以获得更多的数据</p></li>
+<li><p>无可用数据，服务器保持连接打开并等待数据发送</p></li>
+<li><p>因为服务器无法处理任何其他请求，一切都被阻塞</p></li>
 </ul>
 <p>用伪代码，它会看起来像这样:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -186,17 +184,17 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>在异步执行模式中，服务器处理依然在一个线程中顺序处理请求，但当处理程序无事可做的时候， 可以将控制转移到另一个请求处理程序。</p>
 <p>在这种情况下，长轮询（long-polling）传输将看起来像这样：</p>
 <ul class="simple">
-<li>客户端打开HTTP连接到服务器，以获得更多的数据</li>
-<li>没有可用数据，服务器保持打开TCP连接，并同时做别的东西</li>
-<li>当有数据要发送时，服务器发送数据然后关闭连接</li>
+<li><p>客户端打开HTTP连接到服务器，以获得更多的数据</p></li>
+<li><p>没有可用数据，服务器保持打开TCP连接，并同时做别的东西</p></li>
+<li><p>当有数据要发送时，服务器发送数据然后关闭连接</p></li>
 </ul>
 </div>
 <div class="section" id="greenlets">
 <h2><a class="toc-backref" href="#id36">13.7. Greenlets</a><a class="headerlink" href="#greenlets" title="永久链接至标题">¶</a></h2>
 <p>在Python中有两种方法编写异步代码：</p>
 <ul class="simple">
-<li>使用 <a class="reference external" href="http://en.wikipedia.org/wiki/Coroutine">corutines</a> （也称为greenlets）</li>
-<li>使用 <a class="reference external" href="http://en.wikipedia.org/wiki/Callback_(computer_programming">回调</a></li>
+<li><p>使用 <a class="reference external" href="http://en.wikipedia.org/wiki/Coroutine">corutines</a> （也称为greenlets）</p></li>
+<li><p>使用 <a class="reference external" href="http://en.wikipedia.org/wiki/Callback_(computer_programming">回调</a></p></li>
 </ul>
 <p>简而言之，greenlets让你写出能在执行过程中暂停的功能，然后还可以继续执行。</p>
 <p>Greenlet的实现是从 <a class="reference external" href="http://www.stackless.com/">Stackless Python</a> 向后移植到CPython的。
@@ -204,10 +202,10 @@ WSGI服务器一次只能处理一个请求。</p>
 软切换涉及到Python应用程序堆栈的切换（就是指针互换，快速并且容易）和硬切换需要堆栈分片（慢而且容易出错）。 Greenlet 基本上就是移植Stackless的硬切换模式。</p>
 <p>让我们再次看看长轮询（long-polling）的例子，这次基于greenlets：</p>
 <ol class="arabic simple">
-<li>客户端打开HTTP连接到服务器，以获得更多的数据</li>
-<li>服务器启动新的greenlet用来处理长轮询逻辑</li>
-<li>没有数据要发送，greenlet开始休眠，暂停当前正在执行的功能</li>
-<li>当有数据要发生的时候，greenlet唤醒，发送数据然后关闭连接</li>
+<li><p>客户端打开HTTP连接到服务器，以获得更多的数据</p></li>
+<li><p>服务器启动新的greenlet用来处理长轮询逻辑</p></li>
+<li><p>没有数据要发送，greenlet开始休眠，暂停当前正在执行的功能</p></li>
+<li><p>当有数据要发生的时候，greenlet唤醒，发送数据然后关闭连接</p></li>
 </ol>
 <p>用伪代码，它看起来和同步版本完全一样:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -232,10 +230,10 @@ WSGI服务器一次只能处理一个请求。</p>
 <h2><a class="toc-backref" href="#id37">13.8. 回调</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <p>做上下文切换的另一种方法是使用回调。以长轮询（long-polling）为例：</p>
 <ol class="arabic simple">
-<li>客户端打开HTTP连接到服务器，以获得更多的数据</li>
-<li>服务器发现有没有数据发送</li>
-<li>服务器等待数据，并传入当有数据的时候应该被调用的callback函数</li>
-<li>服务器发送响应的回调函数，并关闭连接</li>
+<li><p>客户端打开HTTP连接到服务器，以获得更多的数据</p></li>
+<li><p>服务器发现有没有数据发送</p></li>
+<li><p>服务器等待数据，并传入当有数据的时候应该被调用的callback函数</p></li>
+<li><p>服务器发送响应的回调函数，并关闭连接</p></li>
 </ol>
 <p>伪代码:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -254,14 +252,14 @@ WSGI服务器一次只能处理一个请求。</p>
 <h2><a class="toc-backref" href="#id38">13.9. Futures</a><a class="headerlink" href="#futures" title="永久链接至标题">¶</a></h2>
 <p>有不同的方法来完善使用回调的情况：</p>
 <ul class="simple">
-<li>使用futures</li>
-<li>使用generators</li>
+<li><p>使用futures</p></li>
+<li><p>使用generators</p></li>
 </ul>
 <p>什么是Futures？首先，Futures是一个函数的返回值，它是一个对象，它有以下几个属性：</p>
 <ol class="arabic simple">
-<li>函数执行的状态（idling, running，停止等）</li>
-<li>返回值（如果函数尚未执行，可能是空的）</li>
-<li>各种方法： cancel（），以防止执行，add_done_callback方法,当绑定函数执行完毕时注册回调函数等。</li>
+<li><p>函数执行的状态（idling, running，停止等）</p></li>
+<li><p>返回值（如果函数尚未执行，可能是空的）</p></li>
+<li><p>各种方法： cancel（），以防止执行，add_done_callback方法,当绑定函数执行完毕时注册回调函数等。</p></li>
 </ol>
 <p>您可以看看这篇优秀的 <a class="reference external" href="http://blog.jcoglan.com/2013/03/30/callbacks-are-imperative-promises-are-functional-nodes-biggest-missed-opportunity/">博客文章</a> ，
 其中比较了promises和回调，以及为什么对于写更好的异步代码来说promises优于纯写回调。</p>
@@ -304,15 +302,16 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>在大多数的情况下，完全没有必要写自己的异步网络层，应该更好地利用现有的框架。 在这里我就不一一列举所有的Python异步框架，
 我只说工作中使用的一个，所以不会对其他框架有所冒犯。</p>
 <ol class="arabic simple">
-<li>GEVENT不错，使编写异步程序变得容易，但就像上面说的，我不太适应greenlets。</li>
-<li>Twisted是最古老的异步框架，即使是现在也有积极维护，。我个人的感受相当复杂：复杂，非PEP8，不容易学习。</li>
-<li>Tornado是的我最终选择的框架。有几个原因：<ul>
-<li>快</li>
-<li>可预测的</li>
-<li>更符合Python的风格</li>
-<li>相对较小</li>
-<li>开发活跃</li>
-<li>源代码很容易阅读和理解</li>
+<li><p>GEVENT不错，使编写异步程序变得容易，但就像上面说的，我不太适应greenlets。</p></li>
+<li><p>Twisted是最古老的异步框架，即使是现在也有积极维护，。我个人的感受相当复杂：复杂，非PEP8，不容易学习。</p></li>
+<li><p>Tornado是的我最终选择的框架。有几个原因：</p>
+<ul class="simple">
+<li><p>快</p></li>
+<li><p>可预测的</p></li>
+<li><p>更符合Python的风格</p></li>
+<li><p>相对较小</p></li>
+<li><p>开发活跃</p></li>
+<li><p>源代码很容易阅读和理解</p></li>
 </ul>
 </li>
 </ol>
@@ -349,7 +348,8 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>没错，就这么就可以了。 如果客户端不支持WebSocket的传输，这不要紧，SockJS会回退去使用长轮询传输 - 开发人员只编写一次代码，sockjs-tornado负责抽象协议的差异。</p>
 <p>逻辑是非常简单的:</p>
 <blockquote>
-<div>对于每个传入SockJS连接，sockjs-tornado将创建新的连接类的实例，并调用on_open 在on_open中，处理程序将所广播有人有聊天者加入，并把聊天者的self加入参与者集合。 如果从客户端接收到一些消息，ON_MESSAGE将被调用并且消息将被广播给所有参与者 如果客户端断开连接，on_close将其从参与者集合中删除，并广播给剩下的所有参与者他离开了。</div></blockquote>
+<div><p>对于每个传入SockJS连接，sockjs-tornado将创建新的连接类的实例，并调用on_open 在on_open中，处理程序将所广播有人有聊天者加入，并把聊天者的self加入参与者集合。 如果从客户端接收到一些消息，ON_MESSAGE将被调用并且消息将被广播给所有参与者 如果客户端断开连接，on_close将其从参与者集合中删除，并广播给剩下的所有参与者他离开了。</p>
+</div></blockquote>
 <p>客户端的完整的例子可以在 这里找到:<a class="reference external" href="https://github.com/mrjoes/sockjs-tornado/blob/master/examples/chat/chat.py">https://github.com/mrjoes/sockjs-tornado/blob/master/examples/chat/chat.py</a></p>
 </div>
 <div class="section" id="id21">
@@ -425,13 +425,13 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>此外，对于游戏，客户端应该比较智能点，因为有可能需要有基于原始连接的自定义协议的。 为了简单起见，我们将使用定制的基于JSON协议。</p>
 <p>让我们弄清楚我们需要什么样的消息：</p>
 <ul class="simple">
-<li>验证</li>
-<li>错误处理</li>
-<li>房间列表</li>
-<li>加入的房间</li>
-<li>摸牌</li>
-<li>出牌</li>
-<li>离开房间</li>
+<li><p>验证</p></li>
+<li><p>错误处理</p></li>
+<li><p>房间列表</p></li>
+<li><p>加入的房间</p></li>
+<li><p>摸牌</p></li>
+<li><p>出牌</p></li>
+<li><p>离开房间</p></li>
 </ul>
 <p>认证消息是从客户端发送到服务器的第一条消息。例如，它可以像:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;auth&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;[encrypted-token-in-base64]&quot;</span><span class="p">}</span>
@@ -496,61 +496,58 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>把Flask和Tornado放到负载均衡的后面（如haproxy ） 或反向代理服务器（即nginx 是个不错的想法，但要使用最新有WebSocket协议的支持的版本）。</p>
 <p>有三种部署选项：</p>
 <ol class="arabic simple">
-<li>把Web和实时部分都运行在相同的主机和端口，并使用基于URL路由分发<ul>
-<li><dl class="first docutils">
-<dt>优点</dt>
-<dd><ul class="first last">
-<li>所有的事情看起来是一致的</li>
-<li>无需担心跨域脚本问题</li>
-<li>一般可以工作在有防火墙限制的环境</li>
+<li><p>把Web和实时部分都运行在相同的主机和端口，并使用基于URL路由分发</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>优点</dt><dd><ul>
+<li><p>所有的事情看起来是一致的</p></li>
+<li><p>无需担心跨域脚本问题</p></li>
+<li><p>一般可以工作在有防火墙限制的环境</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>缺点</dt>
-<dd><ul class="first last">
-<li>一些透明HTTP代理服务器不兼容</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</li>
-<li>在相同主机的不同端口，Web在端口80上，实时部分在其他端口<ul>
-<li><dl class="first docutils">
-<dt>优点</dt>
-<dd><ul class="first last">
-<li>和透明代理更加兼容</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>缺点</dt>
-<dd><ul class="first last">
-<li>跨域脚本问题（不是每个浏览器都支持CORS ）</li>
-<li>很有可能被防火墙阻止</li>
+<li><dl class="simple">
+<dt>缺点</dt><dd><ul>
+<li><p>一些透明HTTP代理服务器不兼容</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
 </li>
-<li>Web运行在主要域（site.com）和实时部分运行在子域（subdomain.site.com）<ul>
-<li><dl class="first docutils">
-<dt>优点</dt>
-<dd><ul class="first last">
-<li>可以将实时部分从主站点分离出来（无需使用相同的负载均衡）</li>
+<li><p>在相同主机的不同端口，Web在端口80上，实时部分在其他端口</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>优点</dt><dd><ul>
+<li><p>和透明代理更加兼容</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>缺点</dt>
-<dd><ul class="first last">
-<li>跨域脚本问题</li>
-<li>会碰到行为古怪的透明代理</li>
+<li><dl class="simple">
+<dt>缺点</dt><dd><ul>
+<li><p>跨域脚本问题（不是每个浏览器都支持CORS ）</p></li>
+<li><p>很有可能被防火墙阻止</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>Web运行在主要域（site.com）和实时部分运行在子域（subdomain.site.com）</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>优点</dt><dd><ul>
+<li><p>可以将实时部分从主站点分离出来（无需使用相同的负载均衡）</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>缺点</dt><dd><ul>
+<li><p>跨域脚本问题</p></li>
+<li><p>会碰到行为古怪的透明代理</p></li>
 </ul>
 </dd>
 </dl>

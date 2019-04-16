@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>11. (译)Python魔法方法指南 &#8212; 一起写Python文章，一起看Python文章</title>
     <link rel="stylesheet" href="_static/rux.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -46,61 +44,66 @@
             
   <div class="section" id="python">
 <h1><a class="toc-backref" href="#id29">11. (译)Python魔法方法指南</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">原文:</th><td class="field-body"><a class="reference external" href="http://www.rafekettler.com/magicmethods.html">http://www.rafekettler.com/magicmethods.html</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">原作者:</th><td class="field-body">Rafe Kettler</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">翻译:</th><td class="field-body">hit9</td>
-</tr>
-<tr class="field-even field"><th class="field-name">原版(英文版) Repo:</th><td class="field-body"><a class="reference external" href="https://github.com/RafeKettler/magicmethods">https://github.com/RafeKettler/magicmethods</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">原文</dt>
+<dd class="field-odd"><p><a class="reference external" href="http://www.rafekettler.com/magicmethods.html">http://www.rafekettler.com/magicmethods.html</a></p>
+</dd>
+<dt class="field-even">原作者</dt>
+<dd class="field-even"><p>Rafe Kettler</p>
+</dd>
+<dt class="field-odd">翻译</dt>
+<dd class="field-odd"><p>hit9</p>
+</dd>
+<dt class="field-even">原版(英文版) Repo</dt>
+<dd class="field-even"><p><a class="reference external" href="https://github.com/RafeKettler/magicmethods">https://github.com/RafeKettler/magicmethods</a></p>
+</dd>
+</dl>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目录</p>
 <ul class="simple">
-<li><a class="reference internal" href="#python" id="id29">(译)Python魔法方法指南</a><ul>
-<li><a class="reference internal" href="#id2" id="id30">简介</a></li>
-<li><a class="reference internal" href="#id3" id="id31">构造方法</a></li>
-<li><a class="reference internal" href="#id5" id="id32">操作符</a><ul>
-<li><a class="reference internal" href="#id6" id="id33">比较操作符</a></li>
-<li><a class="reference internal" href="#id7" id="id34">数值操作符</a><ul>
-<li><a class="reference internal" href="#id8" id="id35">一元操作符</a></li>
-<li><a class="reference internal" href="#id9" id="id36">常见算数操作符</a></li>
-<li><a class="reference internal" href="#id10" id="id37">反射算数运算符</a></li>
-<li><a class="reference internal" href="#id11" id="id38">增强赋值运算符</a></li>
-<li><a class="reference internal" href="#id12" id="id39">类型转换操作符</a></li>
+<li><p><a class="reference internal" href="#python" id="id29">(译)Python魔法方法指南</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id30">简介</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id31">构造方法</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id32">操作符</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id33">比较操作符</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id34">数值操作符</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id35">一元操作符</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id36">常见算数操作符</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id37">反射算数运算符</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id38">增强赋值运算符</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id39">类型转换操作符</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13" id="id40">类的表示</a></li>
-<li><a class="reference internal" href="#id14" id="id41">访问控制</a></li>
-<li><a class="reference internal" href="#id15" id="id42">自定义序列</a><ul>
-<li><a class="reference internal" href="#id16" id="id43">预备知识</a></li>
-<li><a class="reference internal" href="#id17" id="id44">容器背后的魔法方法</a></li>
-<li><a class="reference internal" href="#id18" id="id45">一个例子</a></li>
+<li><p><a class="reference internal" href="#id13" id="id40">类的表示</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id41">访问控制</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id42">自定义序列</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id16" id="id43">预备知识</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id44">容器背后的魔法方法</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id45">一个例子</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id19" id="id46">反射</a></li>
-<li><a class="reference internal" href="#id20" id="id47">抽象基类</a></li>
-<li><a class="reference internal" href="#id21" id="id48">可调用的对象</a></li>
-<li><a class="reference internal" href="#id22" id="id49">上下文管理器</a></li>
-<li><a class="reference internal" href="#id23" id="id50">创建描述符对象</a></li>
-<li><a class="reference internal" href="#id24" id="id51">拷贝</a></li>
-<li><a class="reference internal" href="#pickling" id="id52">Pickling</a><ul>
-<li><a class="reference internal" href="#id25" id="id53">Pickling : 小试牛刀</a></li>
-<li><a class="reference internal" href="#pickle" id="id54">Pickle你的对象</a></li>
-<li><a class="reference internal" href="#id26" id="id55">一个例子</a></li>
+<li><p><a class="reference internal" href="#id19" id="id46">反射</a></p></li>
+<li><p><a class="reference internal" href="#id20" id="id47">抽象基类</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id48">可调用的对象</a></p></li>
+<li><p><a class="reference internal" href="#id22" id="id49">上下文管理器</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id50">创建描述符对象</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id51">拷贝</a></p></li>
+<li><p><a class="reference internal" href="#pickling" id="id52">Pickling</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id25" id="id53">Pickling : 小试牛刀</a></p></li>
+<li><p><a class="reference internal" href="#pickle" id="id54">Pickle你的对象</a></p></li>
+<li><p><a class="reference internal" href="#id26" id="id55">一个例子</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id27" id="id56">总结</a></li>
-<li><a class="reference internal" href="#id28" id="id57">附录1：如何调用魔法方法</a></li>
-<li><a class="reference internal" href="#python-3" id="id58">附录2：Python 3中的变化</a></li>
+<li><p><a class="reference internal" href="#id27" id="id56">总结</a></p></li>
+<li><p><a class="reference internal" href="#id28" id="id57">附录1：如何调用魔法方法</a></p></li>
+<li><p><a class="reference internal" href="#python-3" id="id58">附录2：Python 3中的变化</a></p></li>
 </ul>
 </li>
 </ul>
@@ -122,17 +125,17 @@
 <cite>x = SomeClass()</cite> 的时候， <cite>__init__</cite> 并不是第一个被调用的方法。事实上，第一个被调用的是 <cite>__new__</cite> ，这个
 方法才真正地创建了实例。当这个对象的生命周期结束的时候， <cite>__del__</cite> 会被调用。让我们近一步理解这三个方法：</p>
 <ul>
-<li><p class="first"><cite>__new__(cls,[…)</cite></p>
+<li><p><cite>__new__(cls,[…)</cite></p>
 <p><cite>__new__</cite> 是对象实例化时第一个调用的方法，它只取下 <cite>cls</cite> 参数，并把其他参数传给 <cite>__init__</cite> 。 <cite>__new__</cite>
 很少使用，但是也有它适合的场景，尤其是当类继承自一个像元组或者字符串这样不经常改变的类型的时候。我不打算深入讨论
 <cite>__new__</cite> ，因为它并不是很有用， <a class="reference external" href="http://www.python.org/download/releases/2.2/descrintro/#__new__">Python文档</a> 中
 有详细的说明。</p>
 </li>
-<li><p class="first"><cite>__init__(self,[…])</cite></p>
+<li><p><cite>__init__(self,[…])</cite></p>
 <p>类的初始化方法。它获取任何传给构造器的参数（比如我们调用 <cite>x = SomeClass(10, ‘foo’)</cite> ， <cite>__init__</cite> 就会接到参数
 <cite>10</cite> 和 <cite>‘foo’</cite> 。 <cite>__init__</cite> 在Python的类定义中用的最多。</p>
 </li>
-<li><p class="first"><cite>__del__(self)</cite></p>
+<li><p><cite>__del__(self)</cite></p>
 <p><cite>__new__</cite> 和 <cite>__init__</cite> 是对象的构造器， <cite>__del__</cite> 是对象的销毁器。它并非实现了语句 <cite>del x</cite> (因此该语句不等同于 <cite>x.__del__()</cite>)。而是定义了当对象被垃圾回收时的行为。
 当对象需要在销毁时做一些处理的时候这个方法很有用，比如 <cite>socket</cite> 对象、文件对象。但是需要注意的是，当Python解释器退出但对象仍然存活的时候， <cite>__del__</cite> 并不会
 执行。 所以养成一个手工清理的好习惯是很重要的，比如及时关闭连接。</p>
@@ -172,25 +175,25 @@
 <h3><a class="toc-backref" href="#id33">11.3.1. 比较操作符</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>Python包含了一系列的魔法方法，用于实现对象之间直接比较，而不需要采用方法调用。同样也可以重载Python默认的比较方法，改变它们的行为。下面是这些方法的列表：</p>
 <ul>
-<li><p class="first"><cite>__cmp__(self, other)</cite></p>
+<li><p><cite>__cmp__(self, other)</cite></p>
 <p><cite>__cmp__</cite> 是所有比较魔法方法中最基础的一个，它实际上定义了所有比较操作符的行为（&lt;,==,!=,等等），但是它可能不能按照你需要的方式工作（例如，判断一个实例和另一个实例是否相等采用一套标准，而与判断一个实例是否大于另一实例采用另一套）。 <cite>__cmp__</cite> 应该在 <cite>self &lt; other</cite> 时返回一个负整数，在 <cite>self == other</cite> 时返回0，在 <cite>self &gt; other</cite> 时返回正整数。最好只定义你所需要的比较形式，而不是一次定义全部。 如果你需要实现所有的比较形式，而且它们的判断标准类似，那么 <cite>__cmp__</cite> 是一个很好的方法，可以减少代码重复，让代码更简洁。</p>
 </li>
-<li><p class="first"><cite>__eq__`(self, other)</cite></p>
+<li><p><cite>__eq__`(self, other)</cite></p>
 <p>定义等于操作符(==)的行为。</p>
 </li>
-<li><p class="first"><cite>__ne__(self, other)</cite></p>
+<li><p><cite>__ne__(self, other)</cite></p>
 <p>定义不等于操作符(!=)的行为。</p>
 </li>
-<li><p class="first"><cite>__lt__(self, other)</cite></p>
+<li><p><cite>__lt__(self, other)</cite></p>
 <p>定义小于操作符(&lt;)的行为。</p>
 </li>
-<li><p class="first"><cite>__gt__(self, other)</cite></p>
+<li><p><cite>__gt__(self, other)</cite></p>
 <p>定义大于操作符(&gt;)的行为。</p>
 </li>
-<li><p class="first"><cite>__le__(self, other)</cite></p>
+<li><p><cite>__le__(self, other)</cite></p>
 <p>定义小于等于操作符(&lt;)的行为。</p>
 </li>
-<li><p class="first"><cite>__ge__(self, other)</cite></p>
+<li><p><cite>__ge__(self, other)</cite></p>
 <p>定义大于等于操作符(&gt;)的行为。</p>
 </li>
 </ul>
@@ -227,28 +230,28 @@
 <h4><a class="toc-backref" href="#id35">11.3.2.1. 一元操作符</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
 <p>一元操作符只有一个操作符。</p>
 <ul>
-<li><p class="first"><cite>__pos__(self)</cite></p>
+<li><p><cite>__pos__(self)</cite></p>
 <p>实现取正操作，例如 <cite>+some_object</cite>。</p>
 </li>
-<li><p class="first"><cite>__neg__(self)</cite></p>
+<li><p><cite>__neg__(self)</cite></p>
 <p>实现取负操作，例如 <cite>-some_object</cite>。</p>
 </li>
-<li><p class="first"><cite>__abs__(self)</cite></p>
+<li><p><cite>__abs__(self)</cite></p>
 <p>实现内建绝对值函数 <cite>abs()</cite> 操作。</p>
 </li>
-<li><p class="first"><cite>__invert__(self)</cite></p>
+<li><p><cite>__invert__(self)</cite></p>
 <p>实现取反操作符 <cite>~</cite>。</p>
 </li>
-<li><p class="first"><cite>__round__(self， n)</cite></p>
+<li><p><cite>__round__(self， n)</cite></p>
 <p>实现内建函数 <cite>round()</cite> ，n 是近似小数点的位数。</p>
 </li>
-<li><p class="first"><cite>__floor__(self)</cite></p>
+<li><p><cite>__floor__(self)</cite></p>
 <p>实现 <cite>math.floor()</cite> 函数，即向下取整。</p>
 </li>
-<li><p class="first"><cite>__ceil__(self)</cite></p>
+<li><p><cite>__ceil__(self)</cite></p>
 <p>实现 <cite>math.ceil()</cite> 函数，即向上取整。</p>
 </li>
-<li><p class="first"><cite>__trunc__(self)</cite></p>
+<li><p><cite>__trunc__(self)</cite></p>
 <p>实现 <cite>math.trunc()</cite> 函数，即距离零最近的整数。</p>
 </li>
 </ul>
@@ -257,46 +260,46 @@
 <h4><a class="toc-backref" href="#id36">11.3.2.2. 常见算数操作符</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
 <p>现在，我们来看看常见的二元操作符（和一些函数），像+，-，*之类的，它们很容易从字面意思理解。</p>
 <ul>
-<li><p class="first"><cite>__add__(self, other)</cite></p>
+<li><p><cite>__add__(self, other)</cite></p>
 <p>实现加法操作。</p>
 </li>
-<li><p class="first"><cite>__sub__(self, other)</cite></p>
+<li><p><cite>__sub__(self, other)</cite></p>
 <p>实现减法操作。</p>
 </li>
-<li><p class="first"><cite>__mul__(self, other)</cite></p>
+<li><p><cite>__mul__(self, other)</cite></p>
 <p>实现乘法操作。</p>
 </li>
-<li><p class="first"><cite>__floordiv__(self, other)</cite></p>
+<li><p><cite>__floordiv__(self, other)</cite></p>
 <p>实现使用 <cite>//</cite> 操作符的整数除法。</p>
 </li>
-<li><p class="first"><cite>__div__(self, other)</cite></p>
+<li><p><cite>__div__(self, other)</cite></p>
 <p>实现使用 <cite>/</cite> 操作符的除法。</p>
 </li>
-<li><p class="first"><cite>__truediv__(self, other)</cite></p>
+<li><p><cite>__truediv__(self, other)</cite></p>
 <p>实现 <cite>_true_</cite> 除法，这个函数只有使用 <cite>from __future__ import division</cite> 时才有作用。</p>
 </li>
-<li><p class="first"><cite>__mod__(self, other)</cite></p>
+<li><p><cite>__mod__(self, other)</cite></p>
 <p>实现 <cite>%</cite> 取余操作。</p>
 </li>
-<li><p class="first"><cite>__divmod__(self, other)</cite></p>
+<li><p><cite>__divmod__(self, other)</cite></p>
 <p>实现 <cite>divmod</cite> 内建函数。</p>
 </li>
-<li><p class="first"><cite>__pow__</cite></p>
+<li><p><cite>__pow__</cite></p>
 <p>实现 <cite>**</cite> 操作符。</p>
 </li>
-<li><p class="first"><cite>__lshift__(self, other)</cite></p>
+<li><p><cite>__lshift__(self, other)</cite></p>
 <p>实现左移位运算符 <cite>&lt;&lt;</cite> 。</p>
 </li>
-<li><p class="first"><cite>__rshift__(self, other)</cite></p>
+<li><p><cite>__rshift__(self, other)</cite></p>
 <p>实现右移位运算符 <cite>&gt;&gt;</cite> 。</p>
 </li>
-<li><p class="first"><cite>__and__(self, other)</cite></p>
+<li><p><cite>__and__(self, other)</cite></p>
 <p>实现按位与运算符 <cite>&amp;</cite> 。</p>
 </li>
-<li><p class="first"><cite>__or__(self, other)</cite></p>
+<li><p><cite>__or__(self, other)</cite></p>
 <p>实现按位或运算符 <cite>|</cite> 。</p>
 </li>
-<li><p class="first"><cite>__xor__(self, other)</cite></p>
+<li><p><cite>__xor__(self, other)</cite></p>
 <p>实现按位异或运算符 <cite>^</cite> 。</p>
 </li>
 </ul>
@@ -313,46 +316,46 @@
 </div>
 <p>所有反射运算符魔法方法和它们的常见版本做的工作相同，只不过是处理交换连个操作数之后的情况。绝大多数情况下，反射运算和正常顺序产生的结果是相同的，所以很可能你定义 <cite>__radd__</cite> 时只是调用一下 <cite>__add__</cite>。注意一点，操作符左侧的对象（也就是上面的 <cite>other</cite> ）一定不要定义（或者产生 <cite>NotImplemented</cite> 异常） 操作符的非反射版本。例如，在上面的例子中，只有当 <cite>other</cite> 没有定义 <cite>__add__</cite> 时 <cite>some_object.__radd__</cite> 才会被调用。</p>
 <ul>
-<li><p class="first"><cite>__radd__(self, other)</cite></p>
+<li><p><cite>__radd__(self, other)</cite></p>
 <p>实现反射加法操作。</p>
 </li>
-<li><p class="first"><cite>__rsub__(self, other)</cite></p>
+<li><p><cite>__rsub__(self, other)</cite></p>
 <p>实现反射减法操作。</p>
 </li>
-<li><p class="first"><cite>__rmul__(self, other)</cite></p>
+<li><p><cite>__rmul__(self, other)</cite></p>
 <p>实现反射乘法操作。</p>
 </li>
-<li><p class="first"><cite>__rfloordiv__(self, other)</cite></p>
+<li><p><cite>__rfloordiv__(self, other)</cite></p>
 <p>实现使用 <cite>//</cite> 操作符的整数反射除法。</p>
 </li>
-<li><p class="first"><cite>__rdiv__(self, other)</cite></p>
+<li><p><cite>__rdiv__(self, other)</cite></p>
 <p>实现使用 <cite>/</cite> 操作符的反射除法。</p>
 </li>
-<li><p class="first"><cite>__rtruediv__(self, other)</cite></p>
+<li><p><cite>__rtruediv__(self, other)</cite></p>
 <p>实现 <cite>_true_</cite> 反射除法，这个函数只有使用 <cite>from __future__ import division</cite> 时才有作用。</p>
 </li>
-<li><p class="first"><cite>__rmod__(self, other)</cite></p>
+<li><p><cite>__rmod__(self, other)</cite></p>
 <p>实现 <cite>%</cite> 反射取余操作符。</p>
 </li>
-<li><p class="first"><cite>__rdivmod__(self, other)</cite></p>
+<li><p><cite>__rdivmod__(self, other)</cite></p>
 <p>实现调用 <cite>divmod(other, self)</cite> 时 <cite>divmod</cite> 内建函数的操作。</p>
 </li>
-<li><p class="first"><cite>__rpow__</cite></p>
+<li><p><cite>__rpow__</cite></p>
 <p>实现 <cite>**</cite> 反射操作符。</p>
 </li>
-<li><p class="first"><cite>__rlshift__(self, other)</cite></p>
+<li><p><cite>__rlshift__(self, other)</cite></p>
 <p>实现反射左移位运算符 <cite>&lt;&lt;</cite> 的作用。</p>
 </li>
-<li><p class="first"><cite>__rshift__(self, other)</cite></p>
+<li><p><cite>__rshift__(self, other)</cite></p>
 <p>实现反射右移位运算符 <cite>&gt;&gt;</cite> 的作用。</p>
 </li>
-<li><p class="first"><cite>__rand__(self, other)</cite></p>
+<li><p><cite>__rand__(self, other)</cite></p>
 <p>实现反射按位与运算符 <cite>&amp;</cite> 。</p>
 </li>
-<li><p class="first"><cite>__ror__(self, other)</cite></p>
+<li><p><cite>__ror__(self, other)</cite></p>
 <p>实现反射按位或运算符 <cite>|</cite> 。</p>
 </li>
-<li><p class="first"><cite>__rxor__(self, other)</cite></p>
+<li><p><cite>__rxor__(self, other)</cite></p>
 <p>实现反射按位异或运算符 <cite>^</cite> 。</p>
 </li>
 </ul>
@@ -366,43 +369,43 @@
 </div>
 <p>这些方法都应该返回左侧操作数应该被赋予的值（例如， <cite>a += b</cite> <cite>__iadd__</cite> 也许会返回 <cite>a + b</cite> ，这个结果会被赋给 a ）,下面是方法列表：</p>
 <ul>
-<li><p class="first"><cite>__iadd__(self, other)</cite></p>
+<li><p><cite>__iadd__(self, other)</cite></p>
 <p>实现加法赋值操作。</p>
 </li>
-<li><p class="first"><cite>__isub__(self, other)</cite></p>
+<li><p><cite>__isub__(self, other)</cite></p>
 <p>实现减法赋值操作。</p>
 </li>
-<li><p class="first"><cite>__imul__(self, other)</cite></p>
+<li><p><cite>__imul__(self, other)</cite></p>
 <p>实现乘法赋值操作。</p>
 </li>
-<li><p class="first"><cite>__ifloordiv__(self, other)</cite></p>
+<li><p><cite>__ifloordiv__(self, other)</cite></p>
 <p>实现使用 <cite>//=</cite> 操作符的整数除法赋值操作。</p>
 </li>
-<li><p class="first"><cite>__idiv__(self, other)</cite></p>
+<li><p><cite>__idiv__(self, other)</cite></p>
 <p>实现使用 <cite>/=</cite> 操作符的除法赋值操作。</p>
 </li>
-<li><p class="first"><cite>__itruediv__(self, other)</cite></p>
+<li><p><cite>__itruediv__(self, other)</cite></p>
 <p>实现 <cite>_true_</cite> 除法赋值操作，这个函数只有使用 <cite>from __future__ import division</cite> 时才有作用。</p>
 </li>
-<li><p class="first"><cite>__imod__(self, other)</cite></p>
+<li><p><cite>__imod__(self, other)</cite></p>
 <p>实现 <cite>%=</cite> 取余赋值操作。</p>
 </li>
-<li><p class="first"><cite>__ipow__</cite></p>
+<li><p><cite>__ipow__</cite></p>
 <p>实现 <cite>**=</cite> 操作。</p>
 </li>
-<li><p class="first"><cite>__ilshift__(self, other)</cite></p>
+<li><p><cite>__ilshift__(self, other)</cite></p>
 <p>实现左移位赋值运算符 <cite>&lt;&lt;=</cite> 。</p>
 </li>
-<li><p class="first"><cite>__irshift__(self, other)</cite></p>
+<li><p><cite>__irshift__(self, other)</cite></p>
 <p>实现右移位赋值运算符 <cite>&gt;&gt;=</cite> 。</p>
 </li>
-<li><p class="first"><cite>__iand__(self, other)</cite></p>
+<li><p><cite>__iand__(self, other)</cite></p>
 <p>实现按位与运算符 <cite>&amp;=</cite> 。</p>
 </li>
-<li><p class="first"><cite>__ior__(self, other)</cite></p>
+<li><p><cite>__ior__(self, other)</cite></p>
 <p>实现按位或赋值运算符 <cite>|</cite> 。</p>
 </li>
-<li><p class="first"><cite>__ixor__(self, other)</cite></p>
+<li><p><cite>__ixor__(self, other)</cite></p>
 <p>实现按位异或赋值运算符 <cite>^=</cite> 。</p>
 </li>
 </ul>
@@ -411,31 +414,31 @@
 <h4><a class="toc-backref" href="#id39">11.3.2.5. 类型转换操作符</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
 <p>Python也有一系列的魔法方法用于实现类似 <cite>float()</cite> 的内建类型转换函数的操作。它们是这些：</p>
 <ul>
-<li><p class="first"><cite>__int__(self)</cite></p>
+<li><p><cite>__int__(self)</cite></p>
 <p>实现到int的类型转换。</p>
 </li>
-<li><p class="first"><cite>__long__(self)</cite></p>
+<li><p><cite>__long__(self)</cite></p>
 <p>实现到long的类型转换。</p>
 </li>
-<li><p class="first"><cite>__float__(self)</cite></p>
+<li><p><cite>__float__(self)</cite></p>
 <p>实现到float的类型转换。</p>
 </li>
-<li><p class="first"><cite>__complex__(self)</cite></p>
+<li><p><cite>__complex__(self)</cite></p>
 <p>实现到complex的类型转换。</p>
 </li>
-<li><p class="first"><cite>__oct__(self)</cite></p>
+<li><p><cite>__oct__(self)</cite></p>
 <p>实现到八进制数的类型转换。</p>
 </li>
-<li><p class="first"><cite>__hex__(self)</cite></p>
+<li><p><cite>__hex__(self)</cite></p>
 <p>实现到十六进制数的类型转换。</p>
 </li>
-<li><p class="first"><cite>__index__(self)</cite></p>
+<li><p><cite>__index__(self)</cite></p>
 <p>实现当对象用于切片表达式时到一个整数的类型转换。如果你定义了一个可能会用于切片操作的数值类型，你应该定义 <cite>__index__</cite>。</p>
 </li>
-<li><p class="first"><cite>__trunc__(self)</cite></p>
+<li><p><cite>__trunc__(self)</cite></p>
 <p>当调用 <cite>math.trunc(self)</cite> 时调用该方法， <cite>__trunc__</cite> 应该返回 <cite>self</cite> 截取到一个整数类型（通常是long类型）的值。</p>
 </li>
-<li><p class="first"><cite>__coerce__(self)</cite></p>
+<li><p><cite>__coerce__(self)</cite></p>
 <p>该方法用于实现混合模式算数运算，如果不能进行类型转换， <cite>__coerce__</cite> 应该返回 <cite>None</cite> 。反之，它应该返回一个二元组 <cite>self</cite> 和 <cite>other</cite> ，这两者均已被转换成相同的类型。</p>
 </li>
 </ul>
@@ -446,25 +449,25 @@
 <h2><a class="toc-backref" href="#id40">11.4. 类的表示</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <p>使用字符串来表示类是一个相当有用的特性。在Python中有一些内建方法可以返回类的表示，相对应的，也有一系列魔法方法可以用来自定义在使用这些内建函数时类的行为。</p>
 <ul>
-<li><p class="first"><cite>__str__(self)</cite></p>
+<li><p><cite>__str__(self)</cite></p>
 <p>定义对类的实例调用 <cite>str()</cite> 时的行为。</p>
 </li>
-<li><p class="first"><cite>__repr__(self)</cite></p>
+<li><p><cite>__repr__(self)</cite></p>
 <p>定义对类的实例调用 <cite>repr()</cite> 时的行为。 <cite>str()</cite> 和 <cite>repr()</cite> 最主要的差别在于“目标用户”。 <cite>repr()</cite> 的作用是产生机器可读的输出（大部分情况下，其输出可以作为有效的Python代码），而 <cite>str()</cite> 则产生人类可读的输出。</p>
 </li>
-<li><p class="first"><cite>__unicode__(self)</cite></p>
+<li><p><cite>__unicode__(self)</cite></p>
 <p>定义对类的实例调用 <cite>unicode()</cite> 时的行为。 <cite>unicode()</cite> 和 <cite>str()</cite> 很像，只是它返回unicode字符串。注意，如果调用者试图调用 <cite>str()</cite> 而你的类只实现了 <cite>__unicode__()</cite> ，那么类将不能正常工作。所有你应该总是定义 <cite>__str__()</cite> ，以防有些人没有闲情雅致来使用unicode。</p>
 </li>
-<li><p class="first"><cite>__format__(self)</cite></p>
+<li><p><cite>__format__(self)</cite></p>
 <p>定义当类的实例用于新式字符串格式化时的行为，例如， <cite>“Hello, 0:abc!”.format(a)</cite> 会导致调用 <cite>a.__format__(“abc”)</cite> 。当定义你自己的数值类型或字符串类型时，你可能想提供某些特殊的格式化选项，这种情况下这个魔法方法会非常有用。</p>
 </li>
-<li><p class="first"><cite>__hash__(self)</cite></p>
+<li><p><cite>__hash__(self)</cite></p>
 <p>定义对类的实例调用 <cite>hash()</cite> 时的行为。它必须返回一个整数，其结果会被用于字典中键的快速比较。同时注意一点，实现这个魔法方法通常也需要实现 <cite>__eq__</cite> ，并且遵守如下的规则： <cite>a == b</cite> 意味着 <cite>hash(a) == hash(b)</cite>。</p>
 </li>
-<li><p class="first"><cite>__nonzero__(self)</cite></p>
+<li><p><cite>__nonzero__(self)</cite></p>
 <p>定义对类的实例调用 <cite>bool()</cite> 时的行为，根据你自己对类的设计，针对不同的实例，这个魔法方法应该相应地返回True或False。</p>
 </li>
-<li><p class="first"><cite>__dir__(self)</cite></p>
+<li><p><cite>__dir__(self)</cite></p>
 <p>定义对类的实例调用 <cite>dir()</cite> 时的行为，这个方法应该向调用者返回一个属性列表。一般来说，没必要自己实现 <cite>__dir__</cite> 。但是如果你重定义了 <cite>__getattr__</cite> 或者 <cite>__getattribute__</cite> （下个部分会介绍），乃至使用动态生成的属性，以实现类的交互式使用，那么这个魔法方法是必不可少的。</p>
 </li>
 </ul>
@@ -474,19 +477,19 @@
 <h2><a class="toc-backref" href="#id41">11.5. 访问控制</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <p>很多从其他语言转向Python的人都抱怨Python的类缺少真正意义上的封装（即没办法定义私有属性然后使用公有的getter和setter）。然而事实并非如此。实际上Python不是通过显式定义的字段和方法修改器，而是通过魔法方法实现了一系列的封装。</p>
 <ul class="simple">
-<li><cite>__getattr__(self, name)</cite></li>
+<li><p><cite>__getattr__(self, name)</cite></p></li>
 </ul>
 <p>当用户试图访问一个根本不存在（或者暂时不存在）的属性时，你可以通过这个魔法方法来定义类的行为。这个可以用于捕捉错误的拼写并且给出指引，使用废弃属性时给出警告（如果你愿意，仍然可以计算并且返回该属性），以及灵活地处理AttributeError。只有当试图访问不存在的属性时它才会被调用，所以这不能算是一个真正的封装的办法。</p>
 <ul class="simple">
-<li><cite>__setattr__(self, name, value)</cite></li>
+<li><p><cite>__setattr__(self, name, value)</cite></p></li>
 </ul>
 <p>和 <cite>__getattr__</cite> 不同， <cite>__setattr__</cite> 可以用于真正意义上的封装。它允许你自定义某个属性的赋值行为，不管这个属性存在与否，也就是说你可以对任意属性的任何变化都定义自己的规则。然后，一定要小心使用 <cite>__setattr__</cite> ，这个列表最后的例子中会有所展示。</p>
 <ul class="simple">
-<li><cite>__delattr__(self, name)</cite></li>
+<li><p><cite>__delattr__(self, name)</cite></p></li>
 </ul>
 <p>这个魔法方法和 <cite>__setattr__</cite> 几乎相同，只不过它是用于处理删除属性时的行为。和 <cite>_setattr__</cite> 一样，使用它时也需要多加小心，防止产生无限递归（在 <cite>__delattr__</cite> 的实现中调用 <cite>del self.name</cite> 会导致无限递归）。</p>
 <ul class="simple">
-<li><cite>__getattribute__(self, name)</cite></li>
+<li><p><cite>__getattribute__(self, name)</cite></p></li>
 </ul>
 <p>` __getattribute__` 看起来和上面那些方法很合得来，但是最好不要使用它。 <cite>__getattribute__</cite> 只能用于新式类。在最新版的Python中所有的类都是新式类，在老版Python中你可以通过继承 <cite>object</cite> 来创建新式类。 <cite>__getattribute__</cite> 允许你自定义属性被访问时的行为，它也同样可能遇到无限递归问题（通过调用基类的 <cite>__getattribute__</cite> 来避免）。 <cite>__getattribute__</cite> 基本上可以替代 <cite>__getattr__</cite> 。只有当它被实现，并且显式地被调用，或者产生 <cite>AttributeError</cite> 时它才被使用。 这个魔法方法可以被使用（毕竟，选择权在你自己），我不推荐你使用它，因为它的使用范围相对有限（通常我们想要在赋值时进行特殊操作，而不是取值时），而且实现这个方法很容易出现Bug。</p>
 <p>自定义这些控制属性访问的魔法方法很容易导致问题，考虑下面这个例子:</p>
@@ -537,25 +540,25 @@
 <div class="section" id="id17">
 <h3><a class="toc-backref" href="#id44">11.6.2. 容器背后的魔法方法</a><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
 <ul>
-<li><p class="first"><cite>__len__(self)</cite></p>
+<li><p><cite>__len__(self)</cite></p>
 <p>返回容器的长度，可变和不可变类型都需要实现。</p>
 </li>
-<li><p class="first"><cite>__getitem__(self, key)</cite></p>
+<li><p><cite>__getitem__(self, key)</cite></p>
 <p>定义对容器中某一项使用 <cite>self[key]</cite> 的方式进行读取操作时的行为。这也是可变和不可变容器类型都需要实现的一个方法。它应该在键的类型错误式产生 <cite>TypeError</cite> 异常，同时在没有与键值相匹配的内容时产生 <cite>KeyError</cite> 异常。</p>
 </li>
-<li><p class="first"><cite>__setitem__(self, key)</cite></p>
+<li><p><cite>__setitem__(self, key)</cite></p>
 <p>定义对容器中某一项使用 <cite>self[key]</cite> 的方式进行赋值操作时的行为。它是可变容器类型必须实现的一个方法，同样应该在合适的时候产生 <cite>KeyError</cite> 和 <cite>TypeError</cite> 异常。</p>
 </li>
-<li><p class="first"><cite>__iter__(self, key)</cite></p>
+<li><p><cite>__iter__(self, key)</cite></p>
 <p>它应该返回当前容器的一个迭代器。迭代器以一连串内容的形式返回，最常见的是使用 <cite>iter()</cite> 函数调用，以及在类似 <cite>for x in container:</cite> 的循环中被调用。迭代器是他们自己的对象，需要定义 <cite>__iter__</cite> 方法并在其中返回自己。</p>
 </li>
-<li><p class="first"><cite>__reversed__(self)</cite></p>
+<li><p><cite>__reversed__(self)</cite></p>
 <p>定义了对容器使用 <cite>reversed()</cite> 内建函数时的行为。它应该返回一个反转之后的序列。当你的序列类是有序时，类似列表和元组，再实现这个方法，</p>
 </li>
-<li><p class="first"><cite>__contains__(self, item)</cite></p>
+<li><p><cite>__contains__(self, item)</cite></p>
 <p><cite>__contains__</cite> 定义了使用 <cite>in</cite> 和 <cite>not in</cite> 进行成员测试时类的行为。你可能好奇为什么这个方法不是序列协议的一部分，原因是，如果 <cite>__contains__</cite> 没有定义，Python就会迭代整个序列，如果找到了需要的一项就返回 <cite>True</cite> 。</p>
 </li>
-<li><p class="first"><cite>__missing__(self ,key)</cite></p>
+<li><p><cite>__missing__(self ,key)</cite></p>
 <p><cite>__missing__</cite> 在字典的子类中使用，它定义了当试图访问一个字典中不存在的键时的行为（目前为止是指字典的实例，例如我有一个字典 <cite>d</cite> ， <cite>“george”</cite> 不是字典中的一个键，当试图访问 <cite>d[“george’]</cite> 时就会调用 <cite>d.__missing__(“george”)</cite> ）。</p>
 </li>
 </ul>
@@ -627,10 +630,10 @@
 <h2><a class="toc-backref" href="#id46">11.7. 反射</a><a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
 <p>你可以通过定义魔法方法来控制用于反射的内建函数 <cite>isinstance</cite> 和 <cite>issubclass</cite> 的行为。下面是对应的魔法方法：</p>
 <ul>
-<li><p class="first"><cite>__instancecheck__(self, instance)</cite></p>
+<li><p><cite>__instancecheck__(self, instance)</cite></p>
 <p>检查一个实例是否是你定义的类的一个实例（例如 <cite>isinstance(instance, class)</cite> ）。</p>
 </li>
-<li><p class="first"><cite>__subclasscheck__(self, subclass)</cite></p>
+<li><p><cite>__subclasscheck__(self, subclass)</cite></p>
 <p>检查一个类是否是你定义的类的子类（例如 <cite>issubclass(subclass, class)</cite> ）。</p>
 </li>
 </ul>
@@ -645,7 +648,7 @@
 <p>你可能已经知道了，在Python中，函数是一等的对象。这意味着它们可以像其他任何对象一样被传递到函数和方法中，这是一个十分强大的特性。</p>
 <p>Python中一个特殊的魔法方法允许你自己类的对象表现得像是函数，然后你就可以“调用”它们，把它们传递到使用函数做参数的函数中，等等等等。这是另一个强大而且方便的特性，让使用Python编程变得更加幸福。</p>
 <ul>
-<li><p class="first"><cite>__call__(self, [args…])</cite></p>
+<li><p><cite>__call__(self, [args…])</cite></p>
 <p>允许类的一个实例像函数那样被调用。本质上这代表了 <cite>x()</cite> 和 <cite>x.__call__()</cite> 是相同的。注意 <cite>__call__</cite> 可以有多个参数，这代表你可以像定义其他任何函数一样，定义 <cite>__call__</cite> ，喜欢用多少参数就用多少。</p>
 </li>
 </ul>
@@ -673,10 +676,10 @@
 </div>
 <p>当对象使用 <cite>with</cite> 声明创建时，上下文管理器允许类做一些设置和清理工作。上下文管理器的行为由下面两个魔法方法所定义：</p>
 <ul>
-<li><p class="first"><cite>__enter__(self)</cite></p>
+<li><p><cite>__enter__(self)</cite></p>
 <p>定义使用 <cite>with</cite> 声明创建的语句块最开始上下文管理器应该做些什么。注意 <cite>__enter__</cite> 的返回值会赋给 <cite>with</cite> 声明的目标，也就是 <cite>as</cite> 之后的东西。</p>
 </li>
-<li><p class="first"><cite>__exit__(self, exception_type, exception_value, traceback)</cite></p>
+<li><p><cite>__exit__(self, exception_type, exception_value, traceback)</cite></p>
 <p>定义当 <cite>with</cite> 声明语句块执行完毕（或终止）时上下文管理器的行为。它可以用来处理异常，进行清理，或者做其他应该在语句块结束之后立刻执行的工作。如果语句块顺利执行， <cite>exception_type</cite> , <cite>exception_value</cite> 和 <cite>traceback</cite> 会是 <cite>None</cite> 。否则，你可以选择处理这个异常或者让用户来处理。如果你想处理异常，确保 <cite>__exit__</cite> 在完成工作之后返回 <cite>True</cite> 。如果你不想处理异常，那就让它发生吧。</p>
 </li>
 </ul>
@@ -724,13 +727,13 @@
 <p>要想成为一个描述符，一个类必须具有实现 <cite>__get__</cite> , <cite>__set__</cite> 和 <cite>__delete__</cite> 三个方法中至少一个。</p>
 <p>让我们一起来看一看这些魔法方法：</p>
 <ul>
-<li><p class="first"><cite>__get__(self, instance, owner)</cite></p>
+<li><p><cite>__get__(self, instance, owner)</cite></p>
 <p>定义当试图取出描述符的值时的行为。 <cite>instance</cite> 是拥有者类的实例， <cite>owner</cite> 是拥有者类本身。</p>
 </li>
-<li><p class="first"><cite>__set__(self, instance, owner)</cite></p>
+<li><p><cite>__set__(self, instance, owner)</cite></p>
 <p>定义当描述符的值改变时的行为。 <cite>instance</cite> 是拥有者类的实例， <cite>value</cite> 是要赋给描述符的值。</p>
 </li>
-<li><p class="first"><cite>__delete__(self, instance, owner)</cite></p>
+<li><p><cite>__delete__(self, instance, owner)</cite></p>
 <p>定义当描述符的值被删除时的行为。 <cite>instance</cite> 是拥有者类的实例</p>
 </li>
 </ul>
@@ -765,10 +768,10 @@
 <p>有些时候，特别是处理可变对象时，你可能想拷贝一个对象，改变这个对象而不影响原有的对象。这时就需要用到Python的 <cite>copy</cite> 模块了。然而（幸运的是），Python模块并不具有感知能力，
 因此我们不用担心某天基于Linux的机器人崛起。但是我们的确需要告诉Python如何有效率地拷贝对象。</p>
 <ul>
-<li><p class="first"><cite>__copy__(self)</cite></p>
+<li><p><cite>__copy__(self)</cite></p>
 <p>定义对类的实例使用 <cite>copy.copy()</cite> 时的行为。 <cite>copy.copy()</cite> 返回一个对象的浅拷贝，这意味着拷贝出的实例是全新的，然而里面的数据全都是引用的。也就是说，对象本身是拷贝的，但是它的数据还是引用的（所以浅拷贝中的数据更改会影响原对象）。</p>
 </li>
-<li><p class="first"><cite>__deepcopy__(self, memodict=)</cite></p>
+<li><p><cite>__deepcopy__(self, memodict=)</cite></p>
 <p>定义对类的实例使用 <cite>copy.deepcopy()</cite> 时的行为。 <cite>copy.deepcopy()</cite> 返回一个对象的深拷贝，这个对象和它的数据全都被拷贝了一份。 <cite>memodict</cite> 是一个先前拷贝对象的缓存，它优化了拷贝过程，而且可以防止拷贝递归数据结构时产生无限递归。当你想深拷贝一个单独的属性时，在那个属性上调用 <cite>copy.deepcopy()</cite> ，使用 <cite>memodict</cite> 作为第一个参数。</p>
 </li>
 </ul>
@@ -807,22 +810,22 @@
 <h3><a class="toc-backref" href="#id54">11.13.2. Pickle你的对象</a><a class="headerlink" href="#pickle" title="永久链接至标题">¶</a></h3>
 <p>Pickle不仅仅可以用于内建类型，任何遵守pickle协议的类都可以被pickle。Pickle协议有四个可选方法，可以让类自定义它们的行为（这和C语言扩展略有不同，那不在我们的讨论范围之内）。</p>
 <ul>
-<li><p class="first"><cite>__getinitargs__(self)</cite></p>
+<li><p><cite>__getinitargs__(self)</cite></p>
 <p>如果你想让你的类在反pickle时调用 <cite>__init__</cite> ，你可以定义 <cite>__getinitargs__(self)</cite> ，它会返回一个参数元组，这个元组会传递给 <cite>__init__</cite> 。注意，这个方法只能用于旧式类。</p>
 </li>
-<li><p class="first"><cite>__getnewargs__(self)</cite></p>
+<li><p><cite>__getnewargs__(self)</cite></p>
 <p>对新式类来说，你可以通过这个方法改变类在反pickle时传递给 <cite>__new__</cite> 的参数。这个方法应该返回一个参数元组。</p>
 </li>
-<li><p class="first"><cite>__getstate__(self)</cite></p>
+<li><p><cite>__getstate__(self)</cite></p>
 <p>你可以自定义对象被pickle时被存储的状态，而不使用对象的 <cite>__dict__</cite> 属性。 这个状态在对象被反pickle时会被 <cite>__setstate__</cite> 使用。</p>
 </li>
-<li><p class="first"><cite>__setstate__(self)</cite></p>
+<li><p><cite>__setstate__(self)</cite></p>
 <p>当一个对象被反pickle时，如果定义了 <cite>__setstate__</cite> ，对象的状态会传递给这个魔法方法，而不是直接应用到对象的 <cite>__dict__</cite> 属性。这个魔法方法和 <cite>__getstate__</cite> 相互依存：当这两个方法都被定义时，你可以在Pickle时使用任何方法保存对象的任何状态。</p>
 </li>
-<li><p class="first"><cite>__reduce__(self)</cite></p>
+<li><p><cite>__reduce__(self)</cite></p>
 <p>当定义扩展类型时（也就是使用Python的C语言API实现的类型），如果你想pickle它们，你必须告诉Python如何pickle它们。 <cite>__reduce__</cite> 被定义之后，当对象被Pickle时就会被调用。它要么返回一个代表全局名称的字符串，Pyhton会查找它并pickle，要么返回一个元组。这个元组包含2到5个元素，其中包括：一个可调用的对象，用于重建对象时调用；一个参数元素，供那个可调用对象使用；被传递给 <cite>__setstate__</cite> 的状态（可选）；一个产生被pickle的列表元素的迭代器（可选）；一个产生被pickle的字典元素的迭代器（可选）；</p>
 </li>
-<li><p class="first"><cite>__reduce_ex__(self)</cite></p>
+<li><p><cite>__reduce_ex__(self)</cite></p>
 <p><cite>__reduce_ex__</cite> 的存在是为了兼容性。如果它被定义，在pickle时 <cite>__reduce_ex__</cite> 会代替 <cite>__reduce__</cite> 被调用。 <cite>__reduce__</cite> 也可以被定义，用于不支持 <cite>__reduce_ex__</cite> 的旧版pickle的API调用。</p>
 </li>
 </ul>
@@ -874,106 +877,106 @@
 <div class="section" id="id28">
 <h2><a class="toc-backref" href="#id57">11.15. 附录1：如何调用魔法方法</a><a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h2>
 <p>一些魔法方法直接和内建函数对应，这种情况下，如何调用它们是显而易见的。然而，另外的情况下，调用魔法方法的途径并不是那么明显。这个附录旨在展示那些不那么明显的调用魔法方法的语法。</p>
-<table border="1" class="docutils">
+<table class="docutils align-center">
 <colgroup>
-<col width="35%" />
-<col width="37%" />
-<col width="27%" />
+<col style="width: 35%" />
+<col style="width: 37%" />
+<col style="width: 27%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">魔法方法</th>
-<th class="head">什么时候被调用</th>
-<th class="head">解释</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>魔法方法</p></th>
+<th class="head"><p>什么时候被调用</p></th>
+<th class="head"><p>解释</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>__new__(cls [,…])</td>
-<td>instance = MyClass(arg1, arg2)</td>
-<td>__new__在实例创建时调用</td>
+<tbody>
+<tr class="row-even"><td><p>__new__(cls [,…])</p></td>
+<td><p>instance = MyClass(arg1, arg2)</p></td>
+<td><p>__new__在实例创建时调用</p></td>
 </tr>
-<tr class="row-odd"><td>__init__(self [,…])</td>
-<td>instance = MyClass(arg1,arg2)</td>
-<td>__init__在实例创建时调用</td>
+<tr class="row-odd"><td><p>__init__(self [,…])</p></td>
+<td><p>instance = MyClass(arg1,arg2)</p></td>
+<td><p>__init__在实例创建时调用</p></td>
 </tr>
-<tr class="row-even"><td>__cmp__(self)</td>
-<td>self == other, self &gt; other 等</td>
-<td>进行比较时调用</td>
+<tr class="row-even"><td><p>__cmp__(self)</p></td>
+<td><p>self == other, self &gt; other 等</p></td>
+<td><p>进行比较时调用</p></td>
 </tr>
-<tr class="row-odd"><td>__pos__(self)</td>
-<td>+self</td>
-<td>一元加法符号</td>
+<tr class="row-odd"><td><p>__pos__(self)</p></td>
+<td><p>+self</p></td>
+<td><p>一元加法符号</p></td>
 </tr>
-<tr class="row-even"><td>__neg__(self)</td>
-<td>-self</td>
-<td>一元减法符号</td>
+<tr class="row-even"><td><p>__neg__(self)</p></td>
+<td><p>-self</p></td>
+<td><p>一元减法符号</p></td>
 </tr>
-<tr class="row-odd"><td>__invert__(self)</td>
-<td>~self</td>
-<td>按位取反</td>
+<tr class="row-odd"><td><p>__invert__(self)</p></td>
+<td><p>~self</p></td>
+<td><p>按位取反</p></td>
 </tr>
-<tr class="row-even"><td>__index__(self)</td>
-<td>x[self]</td>
-<td>当对象用于索引时</td>
+<tr class="row-even"><td><p>__index__(self)</p></td>
+<td><p>x[self]</p></td>
+<td><p>当对象用于索引时</p></td>
 </tr>
-<tr class="row-odd"><td>__nonzero__(self)</td>
-<td>bool(self)</td>
-<td>对象的布尔值</td>
+<tr class="row-odd"><td><p>__nonzero__(self)</p></td>
+<td><p>bool(self)</p></td>
+<td><p>对象的布尔值</p></td>
 </tr>
-<tr class="row-even"><td>__getattr__(self, name)</td>
-<td>self.name #name不存在</td>
-<td>访问不存在的属性</td>
+<tr class="row-even"><td><p>__getattr__(self, name)</p></td>
+<td><p>self.name #name不存在</p></td>
+<td><p>访问不存在的属性</p></td>
 </tr>
-<tr class="row-odd"><td>__setattr__(self, name)</td>
-<td>self.name = val</td>
-<td>给属性赋值</td>
+<tr class="row-odd"><td><p>__setattr__(self, name)</p></td>
+<td><p>self.name = val</p></td>
+<td><p>给属性赋值</p></td>
 </tr>
-<tr class="row-even"><td>__delattr_(self, name)</td>
-<td>del self.name</td>
-<td>删除属性</td>
+<tr class="row-even"><td><p>__delattr_(self, name)</p></td>
+<td><p>del self.name</p></td>
+<td><p>删除属性</p></td>
 </tr>
-<tr class="row-odd"><td>__getattribute__(self,name)</td>
-<td>self.name</td>
-<td>访问任意属性</td>
+<tr class="row-odd"><td><p>__getattribute__(self,name)</p></td>
+<td><p>self.name</p></td>
+<td><p>访问任意属性</p></td>
 </tr>
-<tr class="row-even"><td>__getitem__(self, key)</td>
-<td>self[key]</td>
-<td>使用索引访问某个元素</td>
+<tr class="row-even"><td><p>__getitem__(self, key)</p></td>
+<td><p>self[key]</p></td>
+<td><p>使用索引访问某个元素</p></td>
 </tr>
-<tr class="row-odd"><td>__setitem__(self, key)</td>
-<td>self[key] = val</td>
-<td>使用索引给某个元素赋值</td>
+<tr class="row-odd"><td><p>__setitem__(self, key)</p></td>
+<td><p>self[key] = val</p></td>
+<td><p>使用索引给某个元素赋值</p></td>
 </tr>
-<tr class="row-even"><td>__delitem__(self, key)</td>
-<td>del self[key]</td>
-<td>使用索引删除某个对象</td>
+<tr class="row-even"><td><p>__delitem__(self, key)</p></td>
+<td><p>del self[key]</p></td>
+<td><p>使用索引删除某个对象</p></td>
 </tr>
-<tr class="row-odd"><td>__iter__(self)</td>
-<td>for x in self</td>
-<td>迭代</td>
+<tr class="row-odd"><td><p>__iter__(self)</p></td>
+<td><p>for x in self</p></td>
+<td><p>迭代</p></td>
 </tr>
-<tr class="row-even"><td>__contains__(self, value)</td>
-<td>value in self, value not in self</td>
-<td>使用in进行成员测试</td>
+<tr class="row-even"><td><p>__contains__(self, value)</p></td>
+<td><p>value in self, value not in self</p></td>
+<td><p>使用in进行成员测试</p></td>
 </tr>
-<tr class="row-odd"><td>__call__(self [,…])</td>
-<td>self(args)</td>
-<td>“调用”一个实例</td>
+<tr class="row-odd"><td><p>__call__(self [,…])</p></td>
+<td><p>self(args)</p></td>
+<td><p>“调用”一个实例</p></td>
 </tr>
-<tr class="row-even"><td>__enter__(self)</td>
-<td>with self as x:</td>
-<td>with声明的上下文管理器</td>
+<tr class="row-even"><td><p>__enter__(self)</p></td>
+<td><p>with self as x:</p></td>
+<td><p>with声明的上下文管理器</p></td>
 </tr>
-<tr class="row-odd"><td>__exit__(self, exc, val, trace)</td>
-<td>with self as x:</td>
-<td>with声明的上下文管理器</td>
+<tr class="row-odd"><td><p>__exit__(self, exc, val, trace)</p></td>
+<td><p>with self as x:</p></td>
+<td><p>with声明的上下文管理器</p></td>
 </tr>
-<tr class="row-even"><td>__getstate__(self)</td>
-<td>pickle.dump(pkl_file, self)</td>
-<td>Pickling</td>
+<tr class="row-even"><td><p>__getstate__(self)</p></td>
+<td><p>pickle.dump(pkl_file, self)</p></td>
+<td><p>Pickling</p></td>
 </tr>
-<tr class="row-odd"><td>__setstate__(self)</td>
-<td>data = pickle.load(pkl_file)</td>
-<td>Pickling</td>
+<tr class="row-odd"><td><p>__setstate__(self)</p></td>
+<td><p>data = pickle.load(pkl_file)</p></td>
+<td><p>Pickling</p></td>
 </tr>
 </tbody>
 </table>
@@ -982,11 +985,11 @@
 <h2><a class="toc-backref" href="#id58">11.16. 附录2：Python 3中的变化</a><a class="headerlink" href="#python-3" title="永久链接至标题">¶</a></h2>
 <p>在这里，我们记录了几个在对象模型方面 Python 3 和 Python 2.x 之间的主要区别。</p>
 <ul class="simple">
-<li>Python 3中string和unicode的区别不复存在，因此 <cite>__unicode__</cite> 被取消了， <cite>__bytes__</cite> 加入进来（与Python 2.7 中的 <cite>__str__</cite> 和 <cite>__unicode__</cite> 行为类似），用于新的创建字节数组的内建方法。</li>
-<li>Python 3中默认除法变成了 true 除法，因此 <cite>__div__</cite> 被取消了。</li>
-<li><cite>__coerce__</cite> 被取消了，因为和其他魔法方法有功能上的重复，以及本身行为令人迷惑。</li>
-<li><cite>__cmp__</cite> 被取消了，因为和其他魔法方法有功能上的重复。</li>
-<li><cite>__nonzero__</cite> 被重命名成 <cite>__bool__</cite> 。</li>
+<li><p>Python 3中string和unicode的区别不复存在，因此 <cite>__unicode__</cite> 被取消了， <cite>__bytes__</cite> 加入进来（与Python 2.7 中的 <cite>__str__</cite> 和 <cite>__unicode__</cite> 行为类似），用于新的创建字节数组的内建方法。</p></li>
+<li><p>Python 3中默认除法变成了 true 除法，因此 <cite>__div__</cite> 被取消了。</p></li>
+<li><p><cite>__coerce__</cite> 被取消了，因为和其他魔法方法有功能上的重复，以及本身行为令人迷惑。</p></li>
+<li><p><cite>__cmp__</cite> 被取消了，因为和其他魔法方法有功能上的重复。</p></li>
+<li><p><cite>__nonzero__</cite> 被重命名成 <cite>__bool__</cite> 。</p></li>
 </ul>
 </div>
 </div>

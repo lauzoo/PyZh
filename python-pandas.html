@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>14. (译)十分钟搞定pandas + 实例 &#8212; 一起写Python文章，一起看Python文章</title>
     <link rel="stylesheet" href="_static/rux.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -45,38 +43,38 @@
             
   <div class="section" id="pandas">
 <span id="python-pandas"></span><h1><a class="toc-backref" href="#id27">14. (译)十分钟搞定pandas + 实例</a><a class="headerlink" href="#pandas" title="永久链接至标题">¶</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">作者:</th><td class="field-body">wzl</td>
-</tr>
-<tr class="field-even field"><th class="field-name">日期:</th><td class="field-body">2017-04-06</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">注:</th><td class="field-body">欢迎fork后pull request来丰富这个文章.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">作者</dt>
+<dd class="field-odd"><p>wzl</p>
+</dd>
+<dt class="field-even">日期</dt>
+<dd class="field-even"><p>2017-04-06</p>
+</dd>
+<dt class="field-odd">注</dt>
+<dd class="field-odd"><p>欢迎fork后pull request来丰富这个文章.</p>
+</dd>
+</dl>
 <div class="contents topic" id="id1">
 <p class="topic-title first">目录</p>
 <ul class="simple">
-<li><a class="reference internal" href="#pandas" id="id27">(译)十分钟搞定pandas + 实例</a><ul>
-<li><a class="reference internal" href="#id2" id="id28">什么是pandas？</a></li>
-<li><a class="reference internal" href="#id4" id="id29">十分钟搞定pandas（译文+注释）</a></li>
-<li><a class="reference internal" href="#id5" id="id30">创建对象</a></li>
-<li><a class="reference internal" href="#id7" id="id31">查看数据</a></li>
-<li><a class="reference internal" href="#id9" id="id32">选择数据</a></li>
-<li><a class="reference internal" href="#id11" id="id33">缺失数据处理</a></li>
-<li><a class="reference internal" href="#id12" id="id34">相关操作</a></li>
-<li><a class="reference internal" href="#id14" id="id35">合并</a></li>
-<li><a class="reference internal" href="#id15" id="id36">分组</a></li>
-<li><a class="reference internal" href="#id16" id="id37">重塑</a></li>
-<li><a class="reference internal" href="#id17" id="id38">时间序列</a></li>
-<li><a class="reference internal" href="#id18" id="id39">分类</a></li>
-<li><a class="reference internal" href="#id20" id="id40">绘图</a></li>
-<li><a class="reference internal" href="#id23" id="id41">获取数据 写入导出</a></li>
-<li><a class="reference internal" href="#id25" id="id42">小陷阱</a></li>
-<li><a class="reference internal" href="#id26" id="id43">pandas实战</a></li>
+<li><p><a class="reference internal" href="#pandas" id="id27">(译)十分钟搞定pandas + 实例</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id28">什么是pandas？</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id29">十分钟搞定pandas（译文+注释）</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id30">创建对象</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id31">查看数据</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id32">选择数据</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id33">缺失数据处理</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id34">相关操作</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id35">合并</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id36">分组</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id37">重塑</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id38">时间序列</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id39">分类</a></p></li>
+<li><p><a class="reference internal" href="#id20" id="id40">绘图</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id41">获取数据 写入导出</a></p></li>
+<li><p><a class="reference internal" href="#id25" id="id42">小陷阱</a></p></li>
+<li><p><a class="reference internal" href="#id26" id="id43">pandas实战</a></p></li>
 </ul>
 </li>
 </ul>
@@ -87,9 +85,9 @@
 <p>pandas是为了解决数据分析任务而创建的，纳入了大量的库和标准数据模型，提供了高效地操作大型数据集所需的工具。</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas中的数据结构</span></code> :</p>
 <ol class="arabic simple">
-<li>Series: 一维数组，类似于python中的基本数据结构list，区别是series只允许存储相同的数据类型，这样可以更有效的使用内存，提高运算效率。就像数据库中的列数据。</li>
-<li>DataFrame: 二维的表格型数据结构。很多功能与R中的data.frame类似。可以将DataFrame理解为Series的容器。</li>
-<li>Panel：三维的数组，可以理解为DataFrame的容器。</li>
+<li><p>Series: 一维数组，类似于python中的基本数据结构list，区别是series只允许存储相同的数据类型，这样可以更有效的使用内存，提高运算效率。就像数据库中的列数据。</p></li>
+<li><p>DataFrame: 二维的表格型数据结构。很多功能与R中的data.frame类似。可以将DataFrame理解为Series的容器。</p></li>
+<li><p>Panel：三维的数组，可以理解为DataFrame的容器。</p></li>
 </ol>
 </div>
 <div class="section" id="id4">
@@ -103,9 +101,9 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">注</span></code></p>
 <ul class="simple">
-<li>numpy 是一个python实现的科学计算包</li>
-<li>matplotlib 是一个python的2D绘图库</li>
-<li>更多章节请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html#cookbook">Cookbook</a></li>
+<li><p>numpy 是一个python实现的科学计算包</p></li>
+<li><p>matplotlib 是一个python的2D绘图库</p></li>
+<li><p>更多章节请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html#cookbook">Cookbook</a></p></li>
 </ul>
 </div>
 <div class="section" id="id5">
@@ -143,7 +141,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">注</span></code></p>
 <ul class="simple">
-<li>np.random.randn(6,4) 即创建6行4列的随机数字数组</li>
+<li><p>np.random.randn(6,4) 即创建6行4列的随机数字数组</p></li>
 </ul>
 <p>3.通过传递能被转换成类似结构的字典来创建DataFrame:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;df2 = pd.DataFrame({&#39;A&#39; : 1.,</span>
@@ -286,7 +284,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">注意</span></code>:虽然标准的Python/Numpy表达式是直观且可用的，但是我们推荐使用优化后的pandas方法,例如:.at,.iat,.loc,.iloc以及.ix
 详情请查看: <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing">Indexing and Selecting Data</a> 和 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/advanced.html#advanced">MultiIndex / Advanced Indexing</a></p>
 <ul class="simple">
-<li>获取</li>
+<li><p>获取</p></li>
 </ul>
 <p>1.选择一列，返回Series，相当于df.A:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
@@ -308,7 +306,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>标签式选择</li>
+<li><p>标签式选择</p></li>
 </ul>
 <p>1.通过标签获取交叉区域:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
@@ -358,7 +356,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">注</span></code>:loc通过行标签获取行数据，iloc通过行号获取行数据</p>
 <ul class="simple">
-<li>位置式选择</li>
+<li><p>位置式选择</p></li>
 </ul>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-integer">通过位置选择</a></p>
 <p>1.通过数值选择:</p>
@@ -415,7 +413,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>Boolean索引</li>
+<li><p>Boolean索引</p></li>
 </ul>
 <p>1.通过某列选择数据:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">A</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
@@ -453,7 +451,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>设置</li>
+<li><p>设置</p></li>
 </ul>
 <p>1.新增一列数据:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20130102&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
@@ -548,7 +546,7 @@
 <h2><a class="toc-backref" href="#id34">14.7. 相关操作</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/basics.html#basics-binop">Basic section on Binary Ops</a></p>
 <ul class="simple">
-<li>统计(操作通常情况下不包含缺失项)</li>
+<li><p>统计(操作通常情况下不包含缺失项)</p></li>
 </ul>
 <p>1.按列求平均值:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -593,13 +591,13 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">注</span></code>:</p>
 <ul class="simple">
-<li>这里对齐维度指的对齐时间index</li>
-<li>shift(2)指沿着时间轴将数据顺移两位</li>
-<li>sub指减法，与NaN进行操作，结果也是NaN</li>
+<li><p>这里对齐维度指的对齐时间index</p></li>
+<li><p>shift(2)指沿着时间轴将数据顺移两位</p></li>
+<li><p>sub指减法，与NaN进行操作，结果也是NaN</p></li>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
-<li>应用</li>
+<li><p>应用</p></li>
 </ul>
 <p>1.对数据应用function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">)</span>
@@ -623,7 +621,7 @@
 - cumsum 累加</p>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/basics.html#basics-discretization">直方图和离散化</a></p>
 <ul>
-<li><p class="first">直方图:</p>
+<li><p>直方图:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
 <span class="go">    0    1</span>
@@ -651,7 +649,7 @@
 </ul>
 <p>pandas默认配置了一些字符串处理方法，可以方便的操作元素，如下所示:(详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/text.html#text-string-methods">Vectorized String Methods</a>)</p>
 <ul>
-<li><p class="first">字符串方法:</p>
+<li><p>字符串方法:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;Aaba&#39;</span><span class="p">,</span> <span class="s1">&#39;Baca&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;CABA&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="go">    0       a</span>
@@ -672,7 +670,7 @@
 <div class="section" id="id14">
 <h2><a class="toc-backref" href="#id35">14.8. 合并</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li>连接</li>
+<li><p>连接</p></li>
 </ul>
 <p>pandas提供了大量的方法，能轻松的对Series，DataFrame和Panel执行合并操作。详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging">Merging section</a></p>
 <p>使用concat()连接pandas对象:</p>
@@ -705,7 +703,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>Join</li>
+<li><p>Join</p></li>
 </ul>
 <p>类似SQL的合并操作，详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging-join">Database style joining</a></p>
 <p>栗子:</p>
@@ -745,7 +743,7 @@
 </pre></div>
 </div>
 <ul>
-<li><p class="first">追加，详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging-concatenation">Appending</a>:</p>
+<li><p>追加，详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/merging.html#merging-concatenation">Appending</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
 <span class="go">          A         B         C         D</span>
@@ -1102,15 +1100,15 @@
 <div class="section" id="id23">
 <h2><a class="toc-backref" href="#id41">14.14. 获取数据 写入导出</a><a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li>CSV</li>
+<li><p>CSV</p></li>
 </ul>
 <ol class="arabic">
-<li><p class="first"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-store-in-csv">写入csv文件</a>:</p>
+<li><p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-store-in-csv">写入csv文件</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;foo.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-read-csv-table">读取csv文件</a>:</p>
+<li><p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-read-csv-table">读取csv文件</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;foo.csv&#39;</span><span class="p">)</span>
 <span class="go">         Unnamed: 0          A          B         C          D</span>
 <span class="go">    0    2000-01-01   0.266457  -0.399641 -0.219582   1.186860</span>
@@ -1135,7 +1133,7 @@
 </li>
 </ol>
 <ul class="simple">
-<li>HDF5</li>
+<li><p>HDF5</p></li>
 </ul>
 <p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-hdf5">HDFStores</a></p>
 <p>1.写入HDF5 Store:</p>
@@ -1165,7 +1163,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>Excel</li>
+<li><p>Excel</p></li>
 </ul>
 <p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-excel">MS Excel</a></p>
 <p>1.写入excel文件:</p>
