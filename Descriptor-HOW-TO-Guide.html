@@ -265,7 +265,7 @@ Objects/classobject.c(<a class="reference external" href="http://svn.python.org/
 <p>简而言之，函数有个方法 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code> ，当函数被当作属性访问时，它就会把函数变成一个实例方法。非资料描述器把 <code class="docutils literal notranslate"><span class="pre">obj.f(*args)</span></code> 的调用转换成 <code class="docutils literal notranslate"><span class="pre">f(obj,</span> <span class="pre">*args)</span></code> 。 调用 <code class="docutils literal notranslate"><span class="pre">klass.f(*args)</span></code> 就变成调用 <code class="docutils literal notranslate"><span class="pre">f(*args)</span></code> 。</p>
 <p>下面的表格总结了绑定和它最有用的两个变种:</p>
 <blockquote>
-<div><table class="docutils align-center">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 39%" />
