@@ -43,7 +43,7 @@
           <div class="body-html">
             
   <div class="section" id="pythonyield-stackoverflow">
-<h1><a class="toc-backref" href="#id9">3. (译)Python关键字yield的解释(stackoverflow)</a><a class="headerlink" href="#pythonyield-stackoverflow" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id9"><span class="section-number">3. </span>(译)Python关键字yield的解释(stackoverflow)</a><a class="headerlink" href="#pythonyield-stackoverflow" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">译者</dt>
 <dd class="field-odd"><p>hit9</p>
@@ -74,7 +74,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id10">3.1. 提问者的问题</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id10"><span class="section-number">3.1. </span>提问者的问题</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>Python关键字yield的作用是什么？用来干什么的？</p>
 <p>比如，我正在试图理解下面的代码:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">node</span><span class="o">.</span><span class="n">_get_child_candidates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">min_dist</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">):</span>
@@ -99,11 +99,11 @@
 什么时候这个调用结束呢？</p>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">3.2. 回答部分</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id11"><span class="section-number">3.2. </span>回答部分</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>为了理解什么是 <code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code>,你必须理解什么是生成器。在理解生成器之前，让我们先走近迭代。</p>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id12">3.3. 可迭代对象</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id12"><span class="section-number">3.3. </span>可迭代对象</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>当你建立了一个列表，你可以逐项地读取这个列表，这叫做一个可迭代对象:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="p">:</span>
@@ -125,7 +125,7 @@
 <p>所有你可以使用 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">..</span> <span class="pre">in</span> <span class="pre">..</span></code> 语法的叫做一个迭代器：列表，字符串，文件……你经常使用它们是因为你可以如你所愿的读取其中的元素，但是你把所有的值都存储到了内存中，如果你有大量数据的话这个方式并不是你想要的。</p>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id13">3.4. 生成器</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id13"><span class="section-number">3.4. </span>生成器</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>生成器是可以迭代的，但是你 <strong>只可以读取它一次</strong> ，因为它并不把所有的值放在内存中，它是实时地生成数据:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mygenerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mygenerator</span> <span class="p">:</span>
@@ -138,7 +138,7 @@
 <p>看起来除了把 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 换成 <code class="docutils literal notranslate"><span class="pre">()</span></code> 外没什么不同。但是，你不可以再次使用 <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">mygenerator</span></code> , 因为生成器只能被迭代一次：先计算出0，然后继续计算1，然后计算4，一个跟一个的…</p>
 </div>
 <div class="section" id="yield">
-<h2><a class="toc-backref" href="#id14">3.5. yield关键字</a><a class="headerlink" href="#yield" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id14"><span class="section-number">3.5. </span>yield关键字</a><a class="headerlink" href="#yield" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">yield</span></code> 是一个类似 <code class="docutils literal notranslate"><span class="pre">return</span></code> 的关键字，只是这个函数返回的是个生成器。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">createGenerator</span><span class="p">()</span> <span class="p">:</span>
 <span class="gp">... </span>   <span class="n">mylist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -163,7 +163,7 @@
 <p>如果生成器内部没有定义 <code class="docutils literal notranslate"><span class="pre">yield</span></code> 关键字，那么这个生成器被认为成空的。这种情况可能因为是循环进行没了，或者是没有满足 <code class="docutils literal notranslate"><span class="pre">if/else</span></code> 条件。</p>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id15">3.6. 回到你的代码</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id15"><span class="section-number">3.6. </span>回到你的代码</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>(译者注:这是回答者对问题的具体解释)</p>
 <p>生成器:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here you create the method of the node object that will return the generator</span>
@@ -232,7 +232,7 @@
 <p>你可以在这里停下，来看看生成器的一些高级用法:</p>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id16">3.7. 控制生成器的穷尽</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><span class="section-number">3.7. </span>控制生成器的穷尽</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Bank</span><span class="p">():</span> <span class="c1"># let&#39;s create a bank, building ATMs</span>
 <span class="gp">... </span>   <span class="n">crisis</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="gp">... </span>   <span class="k">def</span> <span class="nf">create_atm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
@@ -273,7 +273,7 @@
 <p>对于控制一些资源的访问来说这很有用。</p>
 </div>
 <div class="section" id="itertools">
-<h2><a class="toc-backref" href="#id17">3.8. Itertools,你最好的朋友</a><a class="headerlink" href="#itertools" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id17"><span class="section-number">3.8. </span>Itertools,你最好的朋友</a><a class="headerlink" href="#itertools" title="永久链接至标题">¶</a></h2>
 <p>itertools包含了很多特殊的迭代方法。是不是曾想过复制一个迭代器?串联两个迭代器？把嵌套的列表分组？不用创造一个新的列表的 <code class="docutils literal notranslate"><span class="pre">zip/map</span></code>?</p>
 <p>只要 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">itertools</span></code></p>
 <p>需要个例子？让我们看看比赛中4匹马可能到达终点的先后顺序的可能情况:</p>
@@ -310,7 +310,7 @@
 </div>
 </div>
 <div class="section" id="id8">
-<h2><a class="toc-backref" href="#id18">3.9. 了解迭代器的内部机理</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id18"><span class="section-number">3.9. </span>了解迭代器的内部机理</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>迭代是一个实现可迭代对象(实现的是 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code> 方法)和迭代器(实现的是 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> 方法)的过程。可迭代对象是你可以从其获取到一个迭代器的任一对象。迭代器是那些允许你迭代可迭代对象的对象。</p>
 <p>更多见这个文章 <a class="reference external" href="http://effbot.org/zone/python-for-statement.htm">http://effbot.org/zone/python-for-statement.htm</a></p>
 </div>

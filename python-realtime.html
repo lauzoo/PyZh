@@ -43,7 +43,7 @@
           <div class="body-html">
             
   <div class="section" id="python-realtime">
-<h1><a class="toc-backref" href="#id29">13. Python Realtime</a><a class="headerlink" href="#python-realtime" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id29"><span class="section-number">13. </span>Python Realtime</a><a class="headerlink" href="#python-realtime" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">英文原文</dt>
 <dd class="field-odd"><p><a class="reference external" href="http://mrjoes.github.io/2013/06/21/python-realtime.html">http://mrjoes.github.io/2013/06/21/python-realtime.html</a></p>
@@ -86,7 +86,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id30">13.1. 简介</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id30"><span class="section-number">13.1. </span>简介</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>最近我参与了 <a class="reference external" href="http://www.kickstarter.com/projects/1223051718/practical-flask-book-project">Flask book</a>
 的一次聚会,涉及到些realtime相关的问题-它是如何工作的，
 如何整合实时部分与传统的WSGI应用，如何组织应用程序代码等。</p>
@@ -94,7 +94,7 @@
 其中包括一些基础知识，以及简短的介绍用Python异步编程等。</p>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id31">13.2. 一点理论知识</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id31"><span class="section-number">13.2. </span>一点理论知识</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>让我们尝试解决服务器”推送”的问题。web都是拉取数据 - 浏览器发出请求到服务器，服务器会产生并发送回响应。
 但是，如果有需要将数据主动从服务器推送到浏览器该怎么办呢？</p>
 <p>解决方法很简单：浏览器发出AJAX请求到服务器，并要求更新。 虽然看起来这个是常用浏览器和服务器之间推送办法，但有一个问题:</p>
@@ -128,7 +128,7 @@
 将不得不使用AJAX请求到服务器。 这样会增加延迟，并在服务器也会产生额外的负载。</p>
 </div>
 <div class="section" id="websockets">
-<h2><a class="toc-backref" href="#id32">13.3. 邂逅WebSockets</a><a class="headerlink" href="#websockets" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id32"><span class="section-number">13.3. </span>邂逅WebSockets</a><a class="headerlink" href="#websockets" title="永久链接至标题">¶</a></h2>
 <p>虽然WebSockets的不是什么新技术，但经历了几个不兼容的迭代后该规范终于通过了，RFC编号： <a class="reference external" href="http://tools.ietf.org/html/rfc6455">RFC-6455</a> 。</p>
 <p>简而言之，基于WebSocket的服务器和客户端之间建立的是基于TCP的双向连接。 连接的建立建立使用兼容HTTP的握手协议（加上额外的WebSocket相关的头），
 并具有额外的协议层次划分， 所以它也不仅仅是一个从浏览器中打开原始的TCP连接。</p>
@@ -139,7 +139,7 @@
 <p>无论如何，WebSocket的来建立客户端和服务器端之间的双向通信是最好的方式，但不能单一的用来解决推送问题。</p>
 </div>
 <div class="section" id="id9">
-<h2><a class="toc-backref" href="#id33">13.4. 用例</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id33"><span class="section-number">13.4. </span>用例</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>鉴于以上情况，如果您的应用程序大多是从服务器推送数据，基于HTTP的传输会工作得很好。</p>
 <p>但是，如果浏览器支持WebSocket的传输并且WebSocket的连接是可以建立的，它将是更好的选择。</p>
 <p>总而言之，最好的办法是：尝试打开的WebSocket连接，如果失败 - 尝试回退到基于HTTP传输。 当然也有可以”升级”连接 - 首先使用长轮询（long-polling），
@@ -147,7 +147,7 @@
 以避免但在两者连接之间切换时发生任何的跳变情况（race conditions）。</p>
 </div>
 <div class="section" id="polyfill">
-<h2><a class="toc-backref" href="#id34">13.5. Polyfill库</a><a class="headerlink" href="#polyfill" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id34"><span class="section-number">13.5. </span>Polyfill库</a><a class="headerlink" href="#polyfill" title="永久链接至标题">¶</a></h2>
 <p>幸运的是，你没有必要自己实现这一切。 为所有已知的浏览器提供变通方案，搞定代理和防火墙的奇怪问题，尤其是从头开始搞这些事情，是非常困难的。
 已经有人投入人多年的工作使他们的解决方案尽可能稳定。</p>
 <p>有一些 <a class="reference external" href="http://en.wikipedia.org/wiki/Polyfill">polyfill</a> 库，像 <a class="reference external" href="https://github.com/sockjs">SockJS</a> 库 ， <a class="reference external" href="http://socket.io/">Socket.IO</a> 库 , <a class="reference external" href="http://faye.jcoglan.com/">Faye</a>
@@ -161,7 +161,7 @@
 Socket.IO早期的server实现是基于 <a class="reference external" href="http://tornadoweb.org/">Tornado</a> 的。</p>
 </div>
 <div class="section" id="id11">
-<h2><a class="toc-backref" href="#id35">13.6. 服务器端</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id35"><span class="section-number">13.6. </span>服务器端</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>让我们回到Python。</p>
 <p>不幸的是，基于 <a class="reference external" href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">WSGI</a> 服务器不能被用于创建实时应用，因为WSGI协议是同步的。
 WSGI服务器一次只能处理一个请求。</p>
@@ -190,7 +190,7 @@ WSGI服务器一次只能处理一个请求。</p>
 </ul>
 </div>
 <div class="section" id="greenlets">
-<h2><a class="toc-backref" href="#id36">13.7. Greenlets</a><a class="headerlink" href="#greenlets" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id36"><span class="section-number">13.7. </span>Greenlets</a><a class="headerlink" href="#greenlets" title="永久链接至标题">¶</a></h2>
 <p>在Python中有两种方法编写异步代码：</p>
 <ul class="simple">
 <li><p>使用 <a class="reference external" href="http://en.wikipedia.org/wiki/Coroutine">corutines</a> （也称为greenlets）</p></li>
@@ -227,7 +227,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>基于greenlets的代码实现方式也不太像线程。 因为他更容易造成死锁，代码实现中调用者其实并不希望调用的函数去暂停greenlet，但是这个函数却把greenlet暂停了，调用者将没有机会释放锁。</p>
 </div>
 <div class="section" id="id13">
-<h2><a class="toc-backref" href="#id37">13.8. 回调</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id37"><span class="section-number">13.8. </span>回调</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <p>做上下文切换的另一种方法是使用回调。以长轮询（long-polling）为例：</p>
 <ol class="arabic simple">
 <li><p>客户端打开HTTP连接到服务器，以获得更多的数据</p></li>
@@ -249,7 +249,7 @@ WSGI服务器一次只能处理一个请求。</p>
 为Tornado用混合方式实现的异步MongoDB的驱动程序-它用greenlets封装了 IO，但提供了与Tornado兼容的异步API。</p>
 </div>
 <div class="section" id="futures">
-<h2><a class="toc-backref" href="#id38">13.9. Futures</a><a class="headerlink" href="#futures" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id38"><span class="section-number">13.9. </span>Futures</a><a class="headerlink" href="#futures" title="永久链接至标题">¶</a></h2>
 <p>有不同的方法来完善使用回调的情况：</p>
 <ul class="simple">
 <li><p>使用futures</p></li>
@@ -265,7 +265,7 @@ WSGI服务器一次只能处理一个请求。</p>
 其中比较了promises和回调，以及为什么对于写更好的异步代码来说promises优于纯写回调。</p>
 </div>
 <div class="section" id="generators">
-<h2><a class="toc-backref" href="#id39">13.10. Generators</a><a class="headerlink" href="#generators" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id39"><span class="section-number">13.10. </span>Generators</a><a class="headerlink" href="#generators" title="永久链接至标题">¶</a></h2>
 <p>Python生成器也可让写异步程序的程序员更快乐一点。 我们还是看长轮询的例子，但这次我们基于生成器（请注意，从Python 3.3开始会允许从生成器返回值）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@coroutine</span>
 <span class="k">def</span> <span class="nf">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -290,7 +290,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>另一个问题 - 如果有必要使现有的函数异步，它的所有的调用者都应更新。</p>
 </div>
 <div class="section" id="id15">
-<h2><a class="toc-backref" href="#id40">13.11. 总结</a><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id40"><span class="section-number">13.11. </span>总结</a><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
 <p>Greenlets使一切变得”容易”，但其代价是你可能遇到问题，并要允许隐式上下文切换。</p>
 <p>使用回调的代码非常的乱。Futures使得情况有所改善。生成器使代码更易于阅读。</p>
 <p>使用Python编写异步应用程序,似乎”官方”推荐的方式是使用回调/Futures/生成器，而不是greenlets。请参阅 <a class="reference external" href="http://www.python.org/dev/peps/pep-3156/">PEP 3156</a> 。</p>
@@ -298,7 +298,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>我更喜欢明确的上下文切换，因为在花了几个晚上生产环境中使用gdb搞清楚奇怪的解释器崩溃问题后，我对greenlets变得比较谨慎了。</p>
 </div>
 <div class="section" id="id16">
-<h2><a class="toc-backref" href="#id41">13.12. 异步框架</a><a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id41"><span class="section-number">13.12. </span>异步框架</a><a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
 <p>在大多数的情况下，完全没有必要写自己的异步网络层，应该更好地利用现有的框架。 在这里我就不一一列举所有的Python异步框架，
 我只说工作中使用的一个，所以不会对其他框架有所冒犯。</p>
 <ol class="arabic simple">
@@ -319,7 +319,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>我会基于Tornado来解释后面所有的例子，但我敢肯定，类似的抽象同样可以用于其他框架。</p>
 </div>
 <div class="section" id="id17">
-<h2><a class="toc-backref" href="#id42">13.13. Tornado</a><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id42"><span class="section-number">13.13. </span>Tornado</a><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 <p>Tornado的结构是非常简单的。有一个主循环（称为IOLoop）。IOLoop检查socket， 文件描述符等的IO事件（借助 epoll， kqueue或select ），
 并管理基于时间的回调函数。 当有IO事件发生，Tornado调用注册的回调函数。</p>
 <p>例如，如果绑定在某个socket上的的连接进来，Tornado将触发相应的回调函数， 这将创建HTTP请求处理程序类，然后从socket读取头部信息。</p>
@@ -353,7 +353,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>客户端的完整的例子可以在 这里找到:<a class="reference external" href="https://github.com/mrjoes/sockjs-tornado/blob/master/examples/chat/chat.py">https://github.com/mrjoes/sockjs-tornado/blob/master/examples/chat/chat.py</a></p>
 </div>
 <div class="section" id="id21">
-<h2><a class="toc-backref" href="#id43">13.14. 管理状态</a><a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id43"><span class="section-number">13.14. </span>管理状态</a><a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
 <p>服务器端的session是状态的一个例子。如果服务器需要某种先行数据才能处理请求，那服务器是状态相关的。</p>
 <p>状态增加了复杂性 - 它消耗内存，它使伸缩更加困难。 例如，如果没有共享的session状态，客户只能和集群中的一台服务器”说话”。 共享会话状态 - 在为每一个请求从存储中获取状态的时候，每一次数据交换会有额外的IO开销。</p>
 <p>不幸的是，无状态的Comet服务器是不可能实现。为了保持逻辑连接，需要一些会话状态来确保数据在客户端之间数据不会丢失。</p>
@@ -364,7 +364,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>由于网络层是有状态的，运行在应用程序前面负载均衡程序为了满足实时连接将使用粘性sessions（客户端应该每次去到相同的服务器）。</p>
 </div>
 <div class="section" id="id22">
-<h2><a class="toc-backref" href="#id44">13.15. 与WSGI应用集成</a><a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id44"><span class="section-number">13.15. </span>与WSGI应用集成</a><a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
 <p>显然，使用新的异步框架重写现有的Web站点是不太可行的。但是可以让他们共存。</p>
 <p>有两种方法来整合实时部分：</p>
 <p>1， 在同一进程 2， 不在同一进程</p>
@@ -376,7 +376,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>在这篇文章中我们将分析简单的推送broker架构。</p>
 </div>
 <div class="section" id="id23">
-<h2><a class="toc-backref" href="#id45">13.16. 组织你的代码</a><a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id45"><span class="section-number">13.16. </span>组织你的代码</a><a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
 <p>我会用Flask作为一个例子，但同样可以应用到任何其他的框架（Django，Pyramid等）。</p>
 <p>我更喜欢一个代码仓库包含Flask应用和基于Tornado的实时部分。 在这种情况下，可以在这两个项目之间复用一些代码。</p>
 <p>对于Flask，我使用普通的Python库：SQLAlchemy，redis-PY等，对应Tornado， 我必须使用异步的替代库或者使用线程池来执行长时间运行的同步函数，以防止阻塞ioloop。</p>
@@ -384,7 +384,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>让我们看看一些用例。</p>
 </div>
 <div class="section" id="broker">
-<h2><a class="toc-backref" href="#id46">13.17. 推送broker</a><a class="headerlink" href="#broker" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id46"><span class="section-number">13.17. </span>推送broker</a><a class="headerlink" href="#broker" title="永久链接至标题">¶</a></h2>
 <p>Broker接受从Flask应用发来的消息，并将其转发到已连接的客户端。 有很多现成可以使用的broker服务（ PubNub ， Pusher及一些其他的或自托管解决方案，如Hookbox ），
 但由于某种原因你可能要搭建自己的。</p>
 <p>这最简单的推送broker:</p>
@@ -419,7 +419,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <img alt="http://mrjoes.github.io/shared/posts/python-realtime/push-servers.png" src="http://mrjoes.github.io/shared/posts/python-realtime/push-servers.png" />
 </div>
 <div class="section" id="id24">
-<h2><a class="toc-backref" href="#id47">13.18. 游戏</a><a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id47"><span class="section-number">13.18. </span>游戏</a><a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
 <p>让我们为一个”典型”的纸牌游戏做个架构草案。</p>
 <p>假设，有一桌子，一组玩家在玩同一个游戏。 桌子可能包含可见牌和桌面的信息。 每个玩家有其内部状态 - 手上牌的列表，以及一些身份验证数据。</p>
 <p>此外，对于游戏，客户端应该比较智能点，因为有可能需要有基于原始连接的自定义协议的。 为了简单起见，我们将使用定制的基于JSON协议。</p>
@@ -492,7 +492,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>我已经说过了，分布式应用程序的伸缩性就看 <strong>状态管理是否高效</strong> 。</p>
 </div>
 <div class="section" id="id25">
-<h2><a class="toc-backref" href="#id48">13.19. 部署</a><a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id48"><span class="section-number">13.19. </span>部署</a><a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
 <p>把Flask和Tornado放到负载均衡的后面（如haproxy ） 或反向代理服务器（即nginx 是个不错的想法，但要使用最新有WebSocket协议的支持的版本）。</p>
 <p>有三种部署选项：</p>
 <ol class="arabic simple">
@@ -557,7 +557,7 @@ WSGI服务器一次只能处理一个请求。</p>
 </ol>
 </div>
 <div class="section" id="id26">
-<h2><a class="toc-backref" href="#id49">13.20. 现实生活中的经验</a><a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id49"><span class="section-number">13.20. </span>现实生活中的经验</a><a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
 <p>我看到过一些使用sockjs-tornado的成功案例： <a class="reference external" href="http://blog.playbuildy.com/">PlayBuildy</a> <a class="reference external" href="http://blog.pythonanywhere.com/27/">PythonAnywhere</a> 和其他的。</p>
 <p>但不幸的是，我自己没有在大型项目中使用过。</p>
 <p>不过，我有相当有趣的sockjs-node(为nodejs做的SockJS的服务器实现)经验。 我实现了一个比较大的广播电台的实时部分。 在同一时间平均有3500左右连接的客户端。</p>
@@ -575,7 +575,7 @@ WSGI服务器一次只能处理一个请求。</p>
 <p>更新（2013年7月2日）： <a class="reference external" href="http://www.techempower.com/">TechEmpower</a> 发布了他们的 <a class="reference external" href="http://www.techempower.com/benchmarks/#section=data-r6&amp;hw=ec2&amp;test=json">第6轮</a> 的框架基准测试，新版本的Tornado更快了，或与node.js有的一比。</p>
 </div>
 <div class="section" id="id28">
-<h2><a class="toc-backref" href="#id50">13.21. 备注</a><a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id50"><span class="section-number">13.21. </span>备注</a><a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h2>
 <p>虽然有人可能会争辩说，要编写出可伸缩的服务器，Python并不是最好的语言。 当然， Erlang的已经有内建的工具来写高效和可扩展的应用程序（而且也有
 <a class="reference external" href="https://github.com/sockjs/sockjs-erlang">sockjs-erlang</a> ）， 但是要找到erlang的开发人员是比较困难的。 Clojure和Scala也是不错的选项，但Java是完全不同的世界，有自己的类库，方法论和约定。 找到不错的Clojure开发者仍然比找到好的Python开发者很难很多。 Go 也不错，但他是相当年轻的语言接受程度还不高。</p>
 <p>如果你已经有了Python的经验，你可以继续使用Python达到不错的结果。 在大多数情况下，软件开发就是开发成本和性能之间的一个权衡。 我认为Python所处的位置还比较有利,

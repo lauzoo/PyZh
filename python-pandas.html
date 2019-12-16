@@ -42,7 +42,7 @@
           <div class="body-html">
             
   <div class="section" id="pandas">
-<span id="python-pandas"></span><h1><a class="toc-backref" href="#id27">14. (译)十分钟搞定pandas + 实例</a><a class="headerlink" href="#pandas" title="永久链接至标题">¶</a></h1>
+<span id="python-pandas"></span><h1><a class="toc-backref" href="#id27"><span class="section-number">14. </span>(译)十分钟搞定pandas + 实例</a><a class="headerlink" href="#pandas" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">作者</dt>
 <dd class="field-odd"><p>wzl</p>
@@ -80,7 +80,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id28">14.1. 什么是pandas？</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id28"><span class="section-number">14.1. </span>什么是pandas？</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a> : Python数据分析模块</p>
 <p>pandas是为了解决数据分析任务而创建的，纳入了大量的库和标准数据模型，提供了高效地操作大型数据集所需的工具。</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas中的数据结构</span></code> :</p>
@@ -91,7 +91,7 @@
 </ol>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id29">14.2. 十分钟搞定pandas（译文+注释）</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id29"><span class="section-number">14.2. </span>十分钟搞定pandas（译文+注释）</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">说明</span></code> : 本文是pandas官网 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/10min.html">10 Minutes to pandas</a> 的翻译。</p>
 <p><code class="docutils literal notranslate"><span class="pre">引入需要的包</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -107,7 +107,7 @@
 </ul>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id30">14.3. 创建对象</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id30"><span class="section-number">14.3. </span>创建对象</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dsintro">数据结构介绍</a></p>
 <p>1.通过传入一个列表来创建 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series">Series</a> ，pandas会创建默认的整形指标:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
@@ -201,7 +201,7 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id31">14.4. 查看数据</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id31"><span class="section-number">14.4. </span>查看数据</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/basics.html#basics">基本功能</a></p>
 <p>1.查看DataFrame头部&amp;尾部数据:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -280,7 +280,7 @@
 </div>
 </div>
 <div class="section" id="id9">
-<h2><a class="toc-backref" href="#id32">14.5. 选择数据</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id32"><span class="section-number">14.5. </span>选择数据</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">注意</span></code>:虽然标准的Python/Numpy表达式是直观且可用的，但是我们推荐使用优化后的pandas方法,例如:.at,.iat,.loc,.iloc以及.ix
 详情请查看: <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing">Indexing and Selecting Data</a> 和 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/advanced.html#advanced">MultiIndex / Advanced Indexing</a></p>
 <ul class="simple">
@@ -504,7 +504,7 @@
 </div>
 </div>
 <div class="section" id="id11">
-<h2><a class="toc-backref" href="#id33">14.6. 缺失数据处理</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id33"><span class="section-number">14.6. </span>缺失数据处理</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>pandas用np.nan代表缺失数据，详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/missing_data.html#missing-data">Missing Data section</a></p>
 <p>1.reindex()可以修改/增加/删除索引，会返回一个数据的副本:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
@@ -543,7 +543,7 @@
 </div>
 </div>
 <div class="section" id="id12">
-<h2><a class="toc-backref" href="#id34">14.7. 相关操作</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id34"><span class="section-number">14.7. </span>相关操作</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/basics.html#basics-binop">Basic section on Binary Ops</a></p>
 <ul class="simple">
 <li><p>统计(操作通常情况下不包含缺失项)</p></li>
@@ -668,7 +668,7 @@
 </ul>
 </div>
 <div class="section" id="id14">
-<h2><a class="toc-backref" href="#id35">14.8. 合并</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id35"><span class="section-number">14.8. </span>合并</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>连接</p></li>
 </ul>
@@ -773,7 +773,7 @@
 </ul>
 </div>
 <div class="section" id="id15">
-<h2><a class="toc-backref" href="#id36">14.9. 分组</a><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id36"><span class="section-number">14.9. </span>分组</a><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">group</span> <span class="pre">by</span></code>:
 - Splitting 将数据分组
 - Applying 对每个分组应用不同的function
@@ -818,7 +818,7 @@
 </div>
 </div>
 <div class="section" id="id16">
-<h2><a class="toc-backref" href="#id37">14.10. 重塑</a><a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id37"><span class="section-number">14.10. </span>重塑</a><a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/advanced.html#advanced-hierarchical">Hierarchical Indexing</a> 和 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reshaping.html#reshaping-stacking">Reshaping</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">stack</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span>
@@ -925,7 +925,7 @@
 </div>
 </div>
 <div class="section" id="id17">
-<h2><a class="toc-backref" href="#id38">14.11. 时间序列</a><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id38"><span class="section-number">14.11. </span>时间序列</a><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 <p>pandas可以简单高效的进行重新采样通过频率转换(例如:将秒级数据转换成五分钟为单位的数据)。这常见与金融应用中，但是不限于此。详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html#timeseries">Time Series section</a></p>
 <p>栗子:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2012&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
@@ -1019,7 +1019,7 @@
 </div>
 </div>
 <div class="section" id="id18">
-<h2><a class="toc-backref" href="#id39">14.12. 分类</a><a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id39"><span class="section-number">14.12. </span>分类</a><a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
 <p>从0.15版以后，pandas可以造DataFrame中包含分类数据，详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/categorical.html#categorical">分类介绍</a> 和 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html#api-categorical">API 文档</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s2">&quot;raw_grade&quot;</span><span class="p">:[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]})</span>
 </pre></div>
@@ -1078,7 +1078,7 @@
 </div>
 </div>
 <div class="section" id="id20">
-<h2><a class="toc-backref" href="#id40">14.13. 绘图</a><a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id40"><span class="section-number">14.13. </span>绘图</a><a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <p>详情请查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/visualization.html#visualization">Plotting</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
@@ -1098,7 +1098,7 @@
 <p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/_images/frame_plot_basic.png">图二</a></p>
 </div>
 <div class="section" id="id23">
-<h2><a class="toc-backref" href="#id41">14.14. 获取数据 写入导出</a><a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id41"><span class="section-number">14.14. </span>获取数据 写入导出</a><a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>CSV</p></li>
 </ul>
@@ -1194,7 +1194,7 @@
 </div>
 </div>
 <div class="section" id="id25">
-<h2><a class="toc-backref" href="#id42">14.15. 小陷阱</a><a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id42"><span class="section-number">14.15. </span>小陷阱</a><a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
 <p>如果你操作时遇到了如下异常:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]):</span>
 <span class="go">    ...     print(&quot;I was true&quot;)</span>
@@ -1210,7 +1210,7 @@
 查看 <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/gotchas.html#gotchas">Gotchas</a> 也可以</p>
 </div>
 <div class="section" id="id26">
-<h2><a class="toc-backref" href="#id43">14.16. pandas实战</a><a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id43"><span class="section-number">14.16. </span>pandas实战</a><a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
 </div>
 </div>
 

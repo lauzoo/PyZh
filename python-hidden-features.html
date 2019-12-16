@@ -43,7 +43,7 @@
           <div class="body-html">
             
   <div class="section" id="python-stackoverflow">
-<h1><a class="toc-backref" href="#id15">9. (译)Python的隐藏特性(StackOverflow)</a><a class="headerlink" href="#python-stackoverflow" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id15"><span class="section-number">9. </span>(译)Python的隐藏特性(StackOverflow)</a><a class="headerlink" href="#python-stackoverflow" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">译</dt>
 <dd class="field-odd"><p>hit9</p>
@@ -91,7 +91,7 @@
 </ul>
 </div>
 <div class="section" id="unpack">
-<h2><a class="toc-backref" href="#id16">9.1. 函数参数unpack</a><a class="headerlink" href="#unpack" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><span class="section-number">9.1. </span>函数参数unpack</a><a class="headerlink" href="#unpack" title="永久链接至标题">¶</a></h2>
 <p>老生常谈的了:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
@@ -105,7 +105,7 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id17">9.2. 链式比较操作符</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id17"><span class="section-number">9.2. </span>链式比较操作符</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span>
 <span class="go">True</span>
@@ -115,7 +115,7 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id18">9.3. 注意函数的默认参数</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id18"><span class="section-number">9.3. </span>注意函数的默认参数</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[]):</span>
 <span class="gp">... </span>    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="nb">print</span> <span class="n">x</span>
@@ -142,14 +142,14 @@
 </div>
 </div>
 <div class="section" id="get">
-<h2><a class="toc-backref" href="#id19">9.4. 字典有个get()方法</a><a class="headerlink" href="#get" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id19"><span class="section-number">9.4. </span>字典有个get()方法</a><a class="headerlink" href="#get" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">dct.get(key[,</span> <span class="pre">default_value])</span></code> , 当字典 <code class="docutils literal notranslate"><span class="pre">dct</span></code> 中找不到 <code class="docutils literal notranslate"><span class="pre">key</span></code> 时， <code class="docutils literal notranslate"><span class="pre">get</span></code> 就会返回 <code class="docutils literal notranslate"><span class="pre">default_value</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id20">9.5. 带关键字的格式化</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id20"><span class="section-number">9.5. </span>带关键字的格式化</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;Hello </span><span class="si">%(name)s</span><span class="s2"> !&quot;</span> <span class="o">%</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;James&#39;</span><span class="p">}</span>
 <span class="go">Hello James !</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;I am years </span><span class="si">%(age)i</span><span class="s2"> years old&quot;</span> <span class="o">%</span> <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">}</span>
@@ -164,7 +164,7 @@
 <p>快有些模板引擎的味道了:)</p>
 </div>
 <div class="section" id="for-else">
-<h2><a class="toc-backref" href="#id21">9.6. for…else 语法</a><a class="headerlink" href="#for-else" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id21"><span class="section-number">9.6. </span>for…else 语法</a><a class="headerlink" href="#for-else" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">break</span>
@@ -178,10 +178,10 @@
 <p><code class="docutils literal notranslate"><span class="pre">else</span></code> 语句块会在循环结束后执行，除非在循环块中执行 <code class="docutils literal notranslate"><span class="pre">break</span></code></p>
 </div>
 <div class="section" id="dict-missing">
-<h2><a class="toc-backref" href="#id22">9.7. dict 的特殊方法__missing__</a><a class="headerlink" href="#dict-missing" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id22"><span class="section-number">9.7. </span>dict 的特殊方法__missing__</a><a class="headerlink" href="#dict-missing" title="永久链接至标题">¶</a></h2>
 <p>Python 2.5之后引入的。当查找不到 <code class="docutils literal notranslate"><span class="pre">key</span></code> 的时候，会执行这个方法。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
-<span class="gp">... </span>  <span class="k">def</span> <span class="nf">__missing__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">def</span> <span class="fm">__missing__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="gp">...</span>
@@ -193,7 +193,7 @@
 </pre></div>
 </div>
 <p>这很像 <code class="docutils literal notranslate"><span class="pre">collections.defaultdict</span></code> 不是吗?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dct</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dct</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]</span>
 <span class="go">[]</span>
@@ -204,7 +204,7 @@
 </div>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id23">9.8. 切片操作的步长参数</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id23"><span class="section-number">9.8. </span>切片操作的步长参数</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>还能用步长 <code class="docutils literal notranslate"><span class="pre">-1</span></code> 来反转链表:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
@@ -216,7 +216,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id24">9.9. 另一种字符串连接</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id24"><span class="section-number">9.9. </span>另一种字符串连接</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Wang&quot;</span> <span class="s2">&quot;Hong&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Name</span>
 <span class="go">&#39;WangHong&#39;</span>
@@ -231,7 +231,7 @@
 </div>
 </div>
 <div class="section" id="python">
-<h2><a class="toc-backref" href="#id25">9.10. Python解释器中的”_”</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id25"><span class="section-number">9.10. </span>Python解释器中的”_”</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">[0, 1, 2, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span>
@@ -241,24 +241,24 @@
 <p><code class="docutils literal notranslate"><span class="pre">_</span></code> 即Python解释器上一次返回的值</p>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id26">9.11. Python 描述器</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id26"><span class="section-number">9.11. </span>Python 描述器</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>Python描述器是Python 中很魔幻的东西，方法等都是描述器。不再举例</p>
 </div>
 <div class="section" id="zen">
-<h2><a class="toc-backref" href="#id27">9.12. Zen</a><a class="headerlink" href="#zen" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id27"><span class="section-number">9.12. </span>Zen</a><a class="headerlink" href="#zen" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id8">
-<h2><a class="toc-backref" href="#id28">9.13. 嵌套列表推导式</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id28"><span class="section-number">9.13. </span>嵌套列表推导式</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
 <span class="go">[(1, 0), (2, 0), (2, 1)]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="try-except-else">
-<h2><a class="toc-backref" href="#id29">9.14. try/except/else</a><a class="headerlink" href="#try-except-else" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id29"><span class="section-number">9.14. </span>try/except/else</a><a class="headerlink" href="#try-except-else" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
   <span class="n">put_4000000000_volts_through_it</span><span class="p">(</span><span class="n">parrot</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">Voom</span><span class="p">:</span>
@@ -271,14 +271,14 @@
 </div>
 </div>
 <div class="section" id="print">
-<h2><a class="toc-backref" href="#id30">9.15. print 重定向输出到文件</a><a class="headerlink" href="#print" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id30"><span class="section-number">9.15. </span>print 重定向输出到文件</a><a class="headerlink" href="#print" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="o">&gt;&gt;</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;somefile&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">),</span> <span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
 </div>
 <p>注意打开的模式: <code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code> 而不能 <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> ,  当然 <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> 是可以的</p>
 </div>
 <div class="section" id="id9">
-<h2><a class="toc-backref" href="#id31">9.16. 省略号</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id31"><span class="section-number">9.16. </span>省略号</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>在 <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> 中你可以直接使用省略号这个文法:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.2</span> <span class="p">(</span><span class="n">r32</span><span class="p">:</span><span class="mi">88445</span><span class="p">,</span> <span class="n">Oct</span> <span class="mi">20</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">50</span><span class="p">)</span>
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">4.5</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux2</span>
@@ -289,7 +289,7 @@
 </div>
 <p>Python2 中呢?</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="gp">... </span> <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<span class="gp">... </span> <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">item</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -299,7 +299,7 @@
 </div>
 </div>
 <div class="section" id="python3unpack">
-<h2><a class="toc-backref" href="#id32">9.17. Python3中的元组unpack</a><a class="headerlink" href="#python3unpack" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id32"><span class="section-number">9.17. </span>Python3中的元组unpack</a><a class="headerlink" href="#python3unpack" title="永久链接至标题">¶</a></h2>
 <p>真的但愿Python2也这样:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
@@ -325,7 +325,7 @@
 </div>
 </div>
 <div class="section" id="pow">
-<h2><a class="toc-backref" href="#id33">9.18. pow()还有第三个参数</a><a class="headerlink" href="#pow" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id33"><span class="section-number">9.18. </span>pow()还有第三个参数</a><a class="headerlink" href="#pow" title="永久链接至标题">¶</a></h2>
 <p>我们都知道内置函数 <code class="docutils literal notranslate"><span class="pre">pow</span></code>,  <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code> 即 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code></p>
 <p>但是它还可以有第三个参数:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">pow</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -338,7 +338,7 @@
 <p>注意，内置的 <code class="docutils literal notranslate"><span class="pre">pow</span></code> 和 <code class="docutils literal notranslate"><span class="pre">math.pow</span></code> 并不是一个函数，后者只接受2个参数</p>
 </div>
 <div class="section" id="enumerate">
-<h2><a class="toc-backref" href="#id34">9.19. enumerate还有第二个参数</a><a class="headerlink" href="#enumerate" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id34"><span class="section-number">9.19. </span>enumerate还有第二个参数</a><a class="headerlink" href="#enumerate" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> 很赞，可以给我们索引和序列值的对, 但是它还有第二个参数:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -348,7 +348,7 @@
 <p>这个参数用来: 指明索引的起始值</p>
 </div>
 <div class="section" id="id10">
-<h2><a class="toc-backref" href="#id35">9.20. 显式的声明一个集合</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id35"><span class="section-number">9.20. </span>显式的声明一个集合</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>新建一个集合，我们会:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
@@ -360,7 +360,7 @@
 </div>
 </div>
 <div class="section" id="id11">
-<h2><a class="toc-backref" href="#id36">9.21. 用切片来删除序列的某一段</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id36"><span class="section-number">9.21. </span>用切片来删除序列的某一段</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
@@ -377,7 +377,7 @@
 </div>
 </div>
 <div class="section" id="isinstance">
-<h2><a class="toc-backref" href="#id37">9.22. isinstance可以接收一个元组</a><a class="headerlink" href="#isinstance" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id37"><span class="section-number">9.22. </span>isinstance可以接收一个元组</a><a class="headerlink" href="#isinstance" title="永久链接至标题">¶</a></h2>
 <p>这个真的鲜为人知,  我们可以用 <code class="docutils literal notranslate"><span class="pre">isinstance(x,</span> <span class="pre">(float,</span> <span class="pre">int))</span></code> 来判断 <code class="docutils literal notranslate"><span class="pre">x</span></code> 是不是数:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
 <span class="go">True</span>
@@ -395,7 +395,7 @@
 <p>也就是那个元组里面是 <strong>或</strong> 的关系，只要是其中一个的实例就返回 <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 </div>
 <div class="section" id="id12">
-<h2><a class="toc-backref" href="#id38">9.23. 字典里的无限递归</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id38"><span class="section-number">9.23. </span>字典里的无限递归</a><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
@@ -414,7 +414,7 @@
 <p>真心不知道有什么用，不过蛮好玩的不是吗</p>
 </div>
 <div class="section" id="pythonunicode">
-<h2><a class="toc-backref" href="#id39">9.24. Python可以认识Unicode中的数字</a><a class="headerlink" href="#pythonunicode" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id39"><span class="section-number">9.24. </span>Python可以认识Unicode中的数字</a><a class="headerlink" href="#pythonunicode" title="永久链接至标题">¶</a></h2>
 <p>所以说，Python很赞:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;1234&#39;</span><span class="p">)</span>
 <span class="go">1234</span>
@@ -423,7 +423,7 @@
 <p>不只是ASCII字符串的可以认出来，连Unicode的也可以。</p>
 </div>
 <div class="section" id="id13">
-<h2><a class="toc-backref" href="#id40">9.25. 不能访问到的属性</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id40"><span class="section-number">9.25. </span>不能访问到的属性</a><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <p>回答这个答案的人太坏了:)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">O</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span><span class="k">pass</span>
 <span class="gp">...</span>
@@ -440,7 +440,7 @@
 <p>不过，能用 <code class="docutils literal notranslate"><span class="pre">setattr</span></code> 设置属性，就可以用 <code class="docutils literal notranslate"><span class="pre">getattr</span></code> 取出</p>
 </div>
 <div class="section" id="id14">
-<h2><a class="toc-backref" href="#id41">9.26. 尾语</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id41"><span class="section-number">9.26. </span>尾语</a><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <p>欢迎fork, 追加内容。</p>
 </div>
 </div>

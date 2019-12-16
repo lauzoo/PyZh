@@ -43,7 +43,7 @@
           <div class="body-html">
             
   <div class="section" id="python">
-<h1><a class="toc-backref" href="#id10">4. (译)Python的惯例</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id10"><span class="section-number">4. </span>(译)Python的惯例</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">原文</dt>
 <dd class="field-odd"><p><a class="reference external" href="http://courses.cms.caltech.edu/cs11/material/python/misc/python_idioms.html">http://courses.cms.caltech.edu/cs11/material/python/misc/python_idioms.html</a></p>
@@ -72,7 +72,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id11">4.1. 请看这些文档…</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id11"><span class="section-number">4.1. </span>请看这些文档…</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>虽然它们并不是真正的使用惯例，但是你应该知道它们</p>
 <ol class="arabic simple">
 <li><p>长整数</p></li>
@@ -86,7 +86,7 @@
 </ol>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id12">4.2. 迭代一个数组</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id12"><span class="section-number">4.2. </span>迭代一个数组</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>Python 的for语句并不和C语言的一样，更像其他语言的foreach. 如果你需要在迭代中使用索引，标准的做法是:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># or whatever</span>
 
@@ -103,7 +103,7 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id13">4.3. 打断无限循环</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id13"><span class="section-number">4.3. </span>打断无限循环</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>Python并不像C语言有”do/while”语句，它只有一个while循环语句和for循环语句，有时你并不会提前知道什么时候循环会结束，或者你需要打破循环。一个不能再普通的例子就是正在按行迭代一个文件内容:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_filename&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
@@ -126,7 +126,7 @@
 <p>注意内置函数 <code class="xref py py-meth docutils literal notranslate"><span class="pre">file()</span></code> 跟 <code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code> 一样，而且现在更流行了(因为对象的构造器应该和这个对象一个名字)</p>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id14">4.4. 序列乘法</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id14"><span class="section-number">4.4. </span>序列乘法</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>在Python中，链表和字符串都是序列，它们有很多一样的操作(比如 <code class="xref py py-meth docutils literal notranslate"><span class="pre">len()</span></code>).一个不太明显的惯用手法是序列乘法.想要得到一个包含100个0的链表，你可以这么做:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zeroes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
@@ -138,7 +138,7 @@
 <p>这很方便。</p>
 </div>
 <div class="section" id="xrange">
-<h2><a class="toc-backref" href="#id15">4.5. xrange</a><a class="headerlink" href="#xrange" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id15"><span class="section-number">4.5. </span>xrange</a><a class="headerlink" href="#xrange" title="永久链接至标题">¶</a></h2>
 <p>有的时候你想要生成一个长链表但是并不想把它立刻存在内存中。比如，你想要迭代1到1,000,000,000，但是你并不想把这些数都存在内存中。这样你就不会想用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">range()</span></code> .取而代之你应该用 <code class="xref py py-meth docutils literal notranslate"><span class="pre">xrange()</span></code> ,它是 <code class="xref py py-meth docutils literal notranslate"><span class="pre">range()</span></code> 的一个延迟加载的版本(lazy version), 也就是说它只会在需要的时候生成那个数。所以你可以这么写:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">):</span>
     <span class="c1"># do something with i...</span>
@@ -147,7 +147,7 @@
 <p>而且，内存使用会很平稳</p>
 </div>
 <div class="section" id="print-to">
-<h2><a class="toc-backref" href="#id16">4.6. “Print to”语法</a><a class="headerlink" href="#print-to" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><span class="section-number">4.6. </span>“Print to”语法</a><a class="headerlink" href="#print-to" title="永久链接至标题">¶</a></h2>
 <p>最近,”&gt;&gt;” 操作符被重载了, 这样你就可以像下面那样在print语句中使用它了:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;this is an error message&quot;</span>
 </pre></div>
@@ -159,7 +159,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id17">4.7. 异常类</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id17"><span class="section-number">4.7. </span>异常类</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>以前Python中的异常仅仅是简单的字符串。现在不同了，因为类有了很多新的进步。特别是，你可以为异常定义子类，可以选择性的捕捉一些异常或者捕捉它们的超类。异常类一般不复杂.一个典型的异常类看起来是这样的:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class MyException:
     def __init__(self, value):
@@ -179,7 +179,7 @@
 </div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id18">4.8. 列表生成式</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id18"><span class="section-number">4.8. </span>列表生成式</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>这是Python中全新的一个特征，来源于函数式编程语言Haskell(很酷的编程语言，顺便告诉你，你应该看看haskell)</p>
 <p>其思想是:有时你想要为具有某些特征的对象做一个链表，比如你想要为0到20的偶数做一个链表:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
@@ -212,7 +212,7 @@
 <p>优美吗? :-)</p>
 </div>
 <div class="section" id="id8">
-<h2><a class="toc-backref" href="#id19">4.9. 函数式编程</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id19"><span class="section-number">4.9. </span>函数式编程</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>Python实现了很多平常只出现在函数式编程语言(像lisp和ML)中的函数和特性。</p>
 <ol class="arabic">
 <li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">map()</span></code> <code class="xref py py-meth docutils literal notranslate"><span class="pre">reduce()</span></code> <code class="xref py py-meth docutils literal notranslate"><span class="pre">filter()</span></code> 函数</p>
@@ -295,11 +295,11 @@
 </ol>
 </div>
 <div class="section" id="id9">
-<h2><a class="toc-backref" href="#id20">4.10. 生成器和迭代器</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id20"><span class="section-number">4.10. </span>生成器和迭代器</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>这是一个高级的(并且很cool)的话题，我们这里没有地方展开说了。如果你关心这个，去看Python文档吧.-_-</p>
 </div>
 <div class="section" id="peps">
-<h2><a class="toc-backref" href="#id21">4.11. PEPS</a><a class="headerlink" href="#peps" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id21"><span class="section-number">4.11. </span>PEPS</a><a class="headerlink" href="#peps" title="永久链接至标题">¶</a></h2>
 <p>Python社区非常活跃，”comp.lang.python”小组有很多关于Python应该添加什么新特征的讨论。</p>
 <p>所有PEP,见这里:<a class="reference external" href="http://www.python.org/dev/peps/">http://www.python.org/dev/peps/</a></p>
 </div>

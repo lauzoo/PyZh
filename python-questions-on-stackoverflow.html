@@ -43,7 +43,7 @@
           <div class="body-html">
             
   <div class="section" id="stackoverflowpython">
-<h1><a class="toc-backref" href="#id11">8. Stackoverflow上的Python问题精选</a><a class="headerlink" href="#stackoverflowpython" title="永久链接至标题">¶</a></h1>
+<h1><a class="toc-backref" href="#id11"><span class="section-number">8. </span>Stackoverflow上的Python问题精选</a><a class="headerlink" href="#stackoverflowpython" title="永久链接至标题">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>hit9</p>
@@ -83,7 +83,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id12">8.1. 不能直接给对象设置属性?</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id12"><span class="section-number">8.1. </span>不能直接给对象设置属性?</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;whatever&quot;</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -132,7 +132,7 @@
 <p>详细见 <a class="reference external" href="http://docs.python.org/2/reference/datamodel.html#__slots__">Python-slots-doc</a></p>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id13">8.2. 如何打印一个对象的所有属性和值的对</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id13"><span class="section-number">8.2. </span>如何打印一个对象的所有属性和值的对</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>原问题: <a class="reference external" href="http://stackoverflow.com/questions/1251692/how-to-enumerate-an-objects-properties-in-python">http://stackoverflow.com/questions/1251692/how-to-enumerate-an-objects-properties-in-python</a></p>
 <p>答:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nb">property</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">theObject</span><span class="p">)</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
@@ -151,7 +151,7 @@
 ,  而 <code class="docutils literal notranslate"><span class="pre">inspect.getmembers</span></code> 返回的不是空的。</p>
 </div>
 <div class="section" id="dict">
-<h2><a class="toc-backref" href="#id14">8.3. 类的__dict__无法更新?</a><a class="headerlink" href="#dict" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id14"><span class="section-number">8.3. </span>类的__dict__无法更新?</a><a class="headerlink" href="#dict" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">O</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span><span class="k">pass</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">O</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -183,7 +183,7 @@
 </div>
 </div>
 <div class="section" id="unbound-methodbound-method">
-<h2><a class="toc-backref" href="#id15">8.4. unbound method和bound method</a><a class="headerlink" href="#unbound-methodbound-method" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id15"><span class="section-number">8.4. </span>unbound method和bound method</a><a class="headerlink" href="#unbound-methodbound-method" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="k">pass</span>
@@ -229,18 +229,18 @@
 <p><code class="docutils literal notranslate"><span class="pre">staticmethod</span></code> 装饰器会让 <code class="docutils literal notranslate"><span class="pre">foo</span></code> 的 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 返回一个函数，而不是一个方法。</p>
 </div>
 <div class="section" id="function-bound-method-unbound-method">
-<h2><a class="toc-backref" href="#id16">8.5. 那么，function，bound method 和 unbound method 的区别是什么?</a><a class="headerlink" href="#function-bound-method-unbound-method" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id16"><span class="section-number">8.5. </span>那么，function，bound method 和 unbound method 的区别是什么?</a><a class="headerlink" href="#function-bound-method-unbound-method" title="永久链接至标题">¶</a></h2>
 <p>一个函数(function)是由 <code class="docutils literal notranslate"><span class="pre">def</span></code> 语句或者 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 创建的。</p>
 <p>当一个函数(function)定义在了class语句的块中（或者由 <code class="docutils literal notranslate"><span class="pre">type</span></code> 来创建的), 它会转成一个 <code class="docutils literal notranslate"><span class="pre">unbound</span> <span class="pre">method</span></code> , 当我们通过一个类的实例来
 访问这个函数的时候，它就转成了 <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">method</span></code> , <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">method</span></code> 会自动把这个实例作为函数的地一个参数。</p>
 <p>所以， <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">method</span></code> 就是绑定了一个实例的方法， 否则叫做 <code class="docutils literal notranslate"><span class="pre">unbound</span> <span class="pre">method</span></code> .它们都是方法(method), 是出现在 <code class="docutils literal notranslate"><span class="pre">class</span></code> 中的函数。</p>
 </div>
 <div class="section" id="metaclass">
-<h2><a class="toc-backref" href="#id17">8.6. 什么是metaclass</a><a class="headerlink" href="#metaclass" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id17"><span class="section-number">8.6. </span>什么是metaclass</a><a class="headerlink" href="#metaclass" title="永久链接至标题">¶</a></h2>
 <p>这是stackoverflow投票很高的问题: <a class="reference external" href="http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python">http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python</a></p>
 <p>回答: (最高得分的答案)</p>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id18">8.6.1. 什么叫做元类</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id18"><span class="section-number">8.6.1. </span>什么叫做元类</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>Metaclass是创建class的东西。</p>
 <p>一个class是用来创建对象的是不是?</p>
 <p>但是我们知道，Python中的类也是对象。</p>
@@ -289,7 +289,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">type</span></code> 是Python使用的内建元类，当然，Python允许大家建立自己的元类.</p>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id19">8.6.2. __metaclass__ 属性</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id19"><span class="section-number">8.6.2. </span>__metaclass__ 属性</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>你可以在写一个类的时候加上这个属性 <code class="docutils literal notranslate"><span class="pre">__metaclass__</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
   <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">something</span><span class="o">...</span>
@@ -317,7 +317,7 @@
 <p>那么，什么才能创建一个类呢？</p>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id20">8.6.3. 普通的元类</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id20"><span class="section-number">8.6.3. </span>普通的元类</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>设计元类的主要目的就是允许我们在类创建的时候动态的修改它，这经常用在API的设计上。</p>
 <p>让我们举一个很纯的例子，比如你想要让一个模块中的所有类都共享一些属性，有很多办法可以做到，其中一个就是
 在模块中定义一个 <code class="docutils literal notranslate"><span class="pre">__metaclass__</span></code> 属性。</p>
@@ -371,7 +371,7 @@
     <span class="c1"># you can do some stuff in __init__ too if you wish</span>
     <span class="c1"># some advanced use involves overriding __call__ as well, but we won&#39;t</span>
     <span class="c1"># see this</span>
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span>
                 <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">):</span>
 
         <span class="n">attrs</span> <span class="o">=</span> <span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">future_class_attr</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">))</span>
@@ -383,7 +383,7 @@
 <p>但这样并不是很 OOP ， 我们可以直接调用 <code class="docutils literal notranslate"><span class="pre">type</span></code> 函数，并且不覆盖父亲的 <code class="docutils literal notranslate"><span class="pre">__new__</span></code> 方法:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span>
                 <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">):</span>
 
         <span class="n">attrs</span> <span class="o">=</span> <span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">future_class_attr</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">))</span>
@@ -399,7 +399,7 @@
 <p>当然，可以这么写，我上面的例子命名不那么好:)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">):</span>
 
         <span class="n">attrs</span> <span class="o">=</span> <span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">))</span>
         <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">)</span>
@@ -410,7 +410,7 @@
 <p>我们可以使用 <code class="docutils literal notranslate"><span class="pre">super</span></code>  函数来让这个例子变得更简洁:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">):</span>
 
         <span class="n">attrs</span> <span class="o">=</span> <span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">))</span>
         <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">)</span>
@@ -426,7 +426,7 @@
 </ul>
 </div>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id21">8.6.4. 那么你为什么用类来作为metaclass而不是函数</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id21"><span class="section-number">8.6.4. </span>那么你为什么用类来作为metaclass而不是函数</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>既然 <code class="docutils literal notranslate"><span class="pre">__metaclass__</span></code> 可以是任何可以被调用的对象，那么你为什么用类作为metaclass而不是函数呢？</p>
 <p>几个原因:</p>
 <ul class="simple">
@@ -437,7 +437,7 @@
 </ul>
 </div>
 <div class="section" id="id8">
-<h3><a class="toc-backref" href="#id22">8.6.5. 应用场景</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id22"><span class="section-number">8.6.5. </span>应用场景</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>一个典型例子，Django ORM (译者注,peewee也用metaclass):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
@@ -452,14 +452,14 @@
 <p>并不返回一个 <code class="docutils literal notranslate"><span class="pre">IntegerField</span></code> 对象，而是一个 <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
 </div>
 <div class="section" id="id9">
-<h3><a class="toc-backref" href="#id23">8.6.6. 结束语</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id23"><span class="section-number">8.6.6. </span>结束语</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>Python的世界里，万物都是对象</p>
 <p>但是 <code class="docutils literal notranslate"><span class="pre">type</span></code> 是它自己的元类。</p>
 <p>99%的情形下你不需要用这个东西。</p>
 </div>
 </div>
 <div class="section" id="pythonunzip">
-<h2><a class="toc-backref" href="#id24">8.7. 为什么Python没有unzip函数</a><a class="headerlink" href="#pythonunzip" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id24"><span class="section-number">8.7. </span>为什么Python没有unzip函数</a><a class="headerlink" href="#pythonunzip" title="永久链接至标题">¶</a></h2>
 <p>众所周知, <code class="docutils literal notranslate"><span class="pre">zip</span></code> 函数可以把多个序列打包到元组中:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -475,7 +475,7 @@
 </div>
 </div>
 <div class="section" id="python">
-<h2><a class="toc-backref" href="#id25">8.8. Python中的新式类和老式类</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id25"><span class="section-number">8.8. </span>Python中的新式类和老式类</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
 <p>无论你怎么叫吧， 英文来说是 <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">style</span> <span class="pre">class</span></code> 和 <code class="docutils literal notranslate"><span class="pre">old</span> <span class="pre">style</span> <span class="pre">class</span></code></p>
 <p>问题链接: <a class="reference external" href="http://stackoverflow.com/questions/54867/old-style-and-new-style-classes-in-python">http://stackoverflow.com/questions/54867/old-style-and-new-style-classes-in-python</a></p>
 <p>新式类是继承自 <code class="docutils literal notranslate"><span class="pre">object</span></code> 或其他新式类的类:</p>
@@ -496,7 +496,7 @@
 <p>Python为了提供一个更完整的元模型。(好吧，译者也不大明白，不过我知道Python中很神奇的描述器只能在新式类里用)</p>
 </div>
 <div class="section" id="id10">
-<h2><a class="toc-backref" href="#id26">8.9. 译者注</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id26"><span class="section-number">8.9. </span>译者注</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>本文Github地址: <a class="reference external" href="https://github.com/HIT-ON-Github/PyZh/blob/master/docs/python-questions-on-stackoverflow.rst">https://github.com/HIT-ON-Github/PyZh/blob/master/docs/python-questions-on-stackoverflow.rst</a></p>
 <p>欢迎Fork追加问题。</p>
 </div>
